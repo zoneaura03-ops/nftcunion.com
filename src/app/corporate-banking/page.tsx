@@ -38,7 +38,7 @@ export default function CorporateBankingPage() {
       <PublicHeader />
       <section className="bg-bank-900 px-5 py-24 text-white sm:px-8 sm:py-32">
         <div className="mx-auto max-w-[1100px]">
-          <p className="text-xs font-bold uppercase tracking-[.2em] text-gold-400">
+          <p className="text-xs font-bold uppercase tracking-[.2em] text-[#d8b45b]">
             Corporate Banking
           </p>
           <h1 className="mt-5 max-w-3xl text-5xl font-normal leading-tight sm:text-6xl">
@@ -58,8 +58,11 @@ export default function CorporateBankingPage() {
       </section>
       <section className="mx-auto grid max-w-[1100px] gap-5 px-5 py-24 sm:px-8 md:grid-cols-2">
         {services.map(([Icon, title, copy]) => (
-          <article className="card rounded-lg p-8" key={title}>
-            <Icon className="text-gold-500" />
+          <article
+            className="rounded-xl border border-[#e4e7ec] bg-white p-8 shadow-[0_12px_35px_rgba(7,24,44,.07)]"
+            key={title}
+          >
+            <Icon className="text-[#b58e35]" />
             <h2 className="mt-7 text-2xl">{title}</h2>
             <p className="mt-4 text-sm leading-7 text-neutral-500">{copy}</p>
           </article>

@@ -286,7 +286,10 @@ function Login({ notice }: { notice?: string }) {
               {error}
             </p>
           )}
-          <button disabled={loading} className="btn w-full">
+          <button
+            disabled={loading}
+            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[#d8b45b] px-5 py-3 text-sm font-semibold text-[#07182c] hover:bg-[#e7cc88] disabled:cursor-not-allowed disabled:opacity-50 w-full"
+          >
             {loading ? "Signing in…" : "Sign In to Account"}
             <ArrowRight size={16} />
           </button>
@@ -416,7 +419,7 @@ function Registration() {
           {steps.map((x, i) => (
             <div key={x} className="flex-1">
               <div
-                className={`h-1 rounded-full ${i <= step ? "bg-gold-400" : "bg-neutral-200"}`}
+                className={`h-1 rounded-full ${i <= step ? "bg-[#d8b45b]" : "bg-neutral-200"}`}
               />
               <p className="mt-2 hidden text-[10px] text-neutral-400 sm:block">
                 {x}
@@ -651,7 +654,10 @@ function Registration() {
                 Back
               </button>
             )}
-            <button disabled={loading} className="btn flex-1">
+            <button
+              disabled={loading}
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[#d8b45b] px-5 py-3 text-sm font-semibold text-[#07182c] hover:bg-[#e7cc88] disabled:cursor-not-allowed disabled:opacity-50 flex-1"
+            >
               {loading
                 ? "Creating account…"
                 : step === 3

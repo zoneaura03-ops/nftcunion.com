@@ -36,7 +36,7 @@ export default function FeaturesPage() {
       <section className="relative overflow-hidden bg-bank-900 px-5 py-24 text-center text-white sm:px-8 sm:py-32">
         <div className="absolute -right-24 -top-32 size-[430px] rounded-full bg-bank-600/20 blur-3xl" />
         <div className="relative mx-auto max-w-[1100px]">
-          <p className="text-xs font-bold uppercase tracking-[.22em] text-gold-400">
+          <p className="text-xs font-bold uppercase tracking-[.22em] text-[#d8b45b]">
             Our services
           </p>
           <h1 className="mx-auto mt-5 max-w-3xl text-5xl font-normal leading-[1.08] sm:text-6xl">
@@ -48,7 +48,10 @@ export default function FeaturesPage() {
             investment tools together in one clear experience.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
-            <AuthTransitionLink href="/register" className="btn min-w-48">
+            <AuthTransitionLink
+              href="/register"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[#d8b45b] px-5 py-3 text-sm font-semibold text-[#07182c] hover:bg-[#e7cc88] disabled:cursor-not-allowed disabled:opacity-50 min-w-48"
+            >
               Open an account <ArrowRight size={16} />
             </AuthTransitionLink>
             <AuthTransitionLink
@@ -87,9 +90,9 @@ export default function FeaturesPage() {
                 <article
                   id={id}
                   key={title}
-                  className="group rounded-xl border border-black/[.06] bg-white p-7 shadow-[0_12px_35px_rgba(17,45,28,.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(17,45,28,.11)]"
+                  className="group rounded-xl border border-black/[.06] bg-white p-7 shadow-[0_12px_35px_rgba(7,24,44,.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(7,24,44,.12)]"
                 >
-                  <div className="grid size-12 place-items-center rounded-xl bg-gold-50 text-gold-600">
+                  <div className="grid size-12 place-items-center rounded-xl bg-[#f8f1df] text-[#a77d27]">
                     <Icon size={22} />
                   </div>
                   <p className="mt-7 text-[11px] font-bold uppercase tracking-[.16em] text-bank-600">
@@ -122,7 +125,7 @@ export default function FeaturesPage() {
         <div className="mx-auto max-w-[1100px]">
           <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[.2em] text-gold-400">
+              <p className="text-xs font-bold uppercase tracking-[.2em] text-[#d8b45b]">
                 Made for modern banking
               </p>
               <h2 className="mt-4 text-4xl leading-tight sm:text-5xl">
@@ -139,7 +142,7 @@ export default function FeaturesPage() {
               const Icon = benefitIcons[index];
               return (
                 <article key={title} className="bg-bank-900 p-7">
-                  <Icon className="text-gold-400" size={24} />
+                  <Icon className="text-[#d8b45b]" size={24} />
                   <h3 className="mt-5 text-xl">{title}</h3>
                   <p className="mt-3 text-sm leading-7 text-white/55">{copy}</p>
                 </article>
@@ -162,9 +165,9 @@ export default function FeaturesPage() {
               return (
                 <article
                   key={item.title}
-                  className="rounded-xl bg-white p-8 shadow-[0_14px_45px_rgba(17,45,28,.08)] sm:p-10"
+                  className="rounded-xl bg-white p-8 shadow-[0_14px_45px_rgba(7,24,44,.08)] sm:p-10"
                 >
-                  <Icon className="text-gold-500" size={30} />
+                  <Icon className="text-[#b58e35]" size={30} />
                   <h3 className="mt-7 text-3xl">{item.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-neutral-500">
                     {item.description}
@@ -181,7 +184,7 @@ export default function FeaturesPage() {
           </div>
         </div>
       </section>
-      <section className="bg-[#e9f1eb] px-5 py-20 text-center sm:px-8">
+      <section className="bg-[#f6f2e9] px-5 py-20 text-center sm:px-8">
         <h2 className="mx-auto max-w-2xl text-4xl text-[#0b1f3a] sm:text-5xl">
           Ready for banking that keeps up?
         </h2>
@@ -189,7 +192,10 @@ export default function FeaturesPage() {
           Create your North Fountain Trust Credit Union profile and start
           building toward what matters next.
         </p>
-        <AuthTransitionLink href="/register" className="btn mt-8">
+        <AuthTransitionLink
+          href="/register"
+          className="inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[#d8b45b] px-5 py-3 text-sm font-semibold text-[#07182c] hover:bg-[#e7cc88] disabled:cursor-not-allowed disabled:opacity-50 mt-8"
+        >
           Get started today <ArrowRight size={16} />
         </AuthTransitionLink>
       </section>
