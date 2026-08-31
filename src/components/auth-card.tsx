@@ -406,12 +406,20 @@ function Registration() {
             <p className="text-[11px] font-bold uppercase tracking-[.18em] text-bank-600">
               Open an account
             </p>
-            <h1 className="mt-2 text-3xl">{steps[step]}</h1>
-            <p className="mt-2 text-sm text-neutral-500">
+            <h1
+              className={`mt-2 text-3xl ${step === steps.length - 1 ? "text-emerald-700" : ""}`}
+            >
+              {steps[step]}
+            </h1>
+            <p
+              className={`mt-2 text-sm ${step === steps.length - 1 ? "font-semibold text-emerald-700" : "text-neutral-500"}`}
+            >
               Step {step + 1} of {steps.length}
             </p>
           </div>
-          <span className="rounded-full bg-bank-50 px-3 py-1.5 text-xs font-semibold text-bank-700">
+          <span
+            className={`rounded-full px-3 py-1.5 text-xs font-semibold ${step === steps.length - 1 ? "bg-emerald-50 text-emerald-700" : "bg-bank-50 text-bank-700"}`}
+          >
             {Math.round(((step + 1) / steps.length) * 100)}%
           </span>
         </div>
@@ -419,9 +427,11 @@ function Registration() {
           {steps.map((x, i) => (
             <div key={x} className="flex-1">
               <div
-                className={`h-1 rounded-full ${i <= step ? "bg-[#d8b45b]" : "bg-neutral-200"}`}
+                className={`h-1 rounded-full ${i <= step ? (step === steps.length - 1 ? "bg-emerald-500" : "bg-[#d8b45b]") : "bg-neutral-200"}`}
               />
-              <p className="mt-2 hidden text-[10px] text-neutral-400 sm:block">
+              <p
+                className={`mt-2 hidden text-[10px] sm:block ${step === steps.length - 1 && i === step ? "font-semibold text-emerald-700" : "text-neutral-400"}`}
+              >
                 {x}
               </p>
             </div>
