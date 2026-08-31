@@ -555,7 +555,7 @@ function Registration() {
                   <span
                     className={
                       passwordStrong
-                        ? "text-[#0b1f3a]"
+                        ? "text-emerald-700"
                         : passwordScore >= 3
                           ? "text-amber-700"
                           : "text-red-700"
@@ -572,7 +572,7 @@ function Registration() {
                   {checks.map((_, index) => (
                     <span
                       key={index}
-                      className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-gold-500" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`}
+                      className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-emerald-500" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`}
                     />
                   ))}
                 </div>
