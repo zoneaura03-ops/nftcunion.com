@@ -26,7 +26,7 @@ export async function buildTransactionHistoryPdf({
     doc.on("error", reject);
   });
   doc
-    .fillColor("#117676")
+    .fillColor("#a77d27")
     .fontSize(12)
     .text("NORTH FOUNTAIN TRUST CREDIT UNION", { characterSpacing: 3 });
   doc

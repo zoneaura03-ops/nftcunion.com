@@ -51,15 +51,15 @@ export function PublicHeader() {
       <header
         className={`fixed inset-x-0 top-0 z-40 border-b transition-all duration-300 ${
           scrolled
-            ? "border-black/[0.06] bg-white/90 shadow-[0_8px_30px_rgba(10,23,40,.08)] backdrop-blur-xl"
-            : "border-black/[0.045] bg-white"
+            ? "border-white/10 bg-[#07182c]/95 shadow-[0_8px_30px_rgba(0,0,0,.18)] backdrop-blur-xl"
+            : "border-white/10 bg-[#07182c]"
         }`}
       >
         <div
           className={`mx-auto flex max-w-[1220px] items-center justify-between px-5 transition-[height] duration-300 sm:px-8 ${scrolled ? "h-[68px]" : "h-[78px]"}`}
         >
           <div className="origin-left">
-            <Logo />
+            <Logo inverse />
           </div>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -70,8 +70,8 @@ export function PublicHeader() {
                 className={`group relative px-3.5 py-3 text-[13px] font-medium transition-colors ${
                   pathname === link.href ||
                   (link.href === "/features" && pathname === "/features")
-                    ? "text-[#0b1f3a]"
-                    : "text-neutral-600 hover:text-[#0b1f3a]"
+                    ? "text-white"
+                    : "text-white/65 hover:text-white"
                 }`}
               >
                 {link.label}
@@ -85,13 +85,13 @@ export function PublicHeader() {
                 />
               </Link>
             ))}
-            <span className="mx-2 h-5 w-px bg-neutral-200" />
+            <span className="mx-2 h-5 w-px bg-white/15" />
             <AuthTransitionLink
               href="/login"
-              className="rounded px-3 py-3 text-[13px] font-medium text-neutral-600 hover:bg-gold-50 hover:text-[#0b1f3a]"
+              className="rounded px-3 py-3 text-[13px] font-medium text-white/70 hover:bg-white/10 hover:text-white"
             >
               <LockKeyhole
-                className="mr-1.5 inline-block text-gold-600"
+                className="mr-1.5 inline-block text-gold-300"
                 size={13}
               />
               Sign In
@@ -108,7 +108,7 @@ export function PublicHeader() {
             aria-label="Open navigation menu"
             aria-expanded={open}
             onClick={() => setOpen(true)}
-            className="grid h-11 w-11 place-items-center rounded-full text-gold-600 hover:bg-gold-50 hover:text-gold-700 lg:hidden"
+            className="grid h-11 w-11 place-items-center rounded-full text-gold-300 hover:bg-white/10 hover:text-white lg:hidden"
             type="button"
           >
             <Menu size={25} strokeWidth={2} />
@@ -131,7 +131,7 @@ export function PublicHeader() {
           className={`absolute right-0 top-0 flex h-full w-[86%] max-w-[360px] flex-col bg-white px-6 py-6 shadow-2xl transition-transform duration-300 ease-out ${open ? "translate-x-0" : "translate-x-full"}`}
         >
           <div className="flex items-center justify-between">
-            <Logo />
+            <Logo inverse />
             <button
               className="grid h-10 w-10 place-items-center"
               onClick={() => setOpen(false)}
@@ -148,7 +148,7 @@ export function PublicHeader() {
                   key={link.label}
                   onClick={() => setOpen(false)}
                   href={link.href}
-                  className={`flex items-center gap-3 border-b border-neutral-100 py-4 text-[15px] font-medium ${pathname === link.href ? "text-[#0b1f3a]" : "text-neutral-700"}`}
+                  className={`flex items-center gap-3 border-b border-neutral-100 py-4 text-[15px] font-medium ${pathname === link.href ? "text-white" : "text-neutral-700"}`}
                 >
                   <span
                     className={`grid h-9 w-9 place-items-center rounded-md ${pathname === link.href ? "bg-gold-50 text-gold-600" : "bg-gold-50 text-gold-600"}`}

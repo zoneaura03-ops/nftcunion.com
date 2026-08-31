@@ -118,7 +118,7 @@ function Frame({
               <span className="block text-[11px] font-medium tracking-[.17em]">
                 North Fountain
               </span>
-              <span className="mt-1 block text-[8px] font-medium tracking-[.22em] text-[#2a8f8a]">
+              <span className="mt-1 block text-[8px] font-medium tracking-[.22em] text-[#d8b45b]">
                 Trust Credit Union
               </span>
             </span>

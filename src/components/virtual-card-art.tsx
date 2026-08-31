@@ -28,14 +28,14 @@ export function VirtualCardArt({
       ? `${String(expiryMonth).padStart(2, "0")}/${String(expiryYear).slice(-2)}`
       : "--/--";
   const background = visa
-    ? "linear-gradient(135deg,#117676 0%,#0b1f3a 48%,#06111f 100%)"
+    ? "linear-gradient(135deg,#a77d27 0%,#0b1f3a 48%,#06111f 100%)"
     : credit
       ? "linear-gradient(135deg,#161a18 0%,#080b0a 58%,#18130a 100%)"
       : "linear-gradient(135deg,#26354f 0%,#0b1f3a 48%,#06111f 100%)";
 
   return (
     <div
-      className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#168c8c]/80" : "ring-1 ring-inset ring-white/10"}`}
+      className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#d8b45b]/80" : "ring-1 ring-inset ring-white/10"}`}
       style={{ background }}
       aria-label={`North Fountain Trust Credit Union ${network} ending ${digits}`}
     >
@@ -47,43 +47,62 @@ export function VirtualCardArt({
             : "repeating-linear-gradient(100deg,transparent 0 5px,rgba(255,255,255,.045) 6px 7px)",
         }}
       />
-      <div className={`absolute -right-[18%] -top-[38%] size-[72%] rounded-full ${credit ? "bg-[#168c8c]/[.07]" : "bg-white/[.045]"}`} />
+      <div
+        className={`absolute -right-[18%] -top-[38%] size-[72%] rounded-full ${credit ? "bg-[#d8b45b]/[.07]" : "bg-white/[.045]"}`}
+      />
 
-      <div className={`relative flex h-full flex-col ${compact ? "p-[9%]" : "p-[8%]"}`}>
+      <div
+        className={`relative flex h-full flex-col ${compact ? "p-[9%]" : "p-[8%]"}`}
+      >
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-[5%]">
-            <BrandMark className={`${compact ? "size-4" : "size-[clamp(1.2rem,4vw,2rem)]"} shrink-0 [--mark-path:#f1d47b] !text-[#f1d47b]`} />
+            <BrandMark
+              className={`${compact ? "size-4" : "size-[clamp(1.2rem,4vw,2rem)]"} shrink-0 [--mark-path:#f1d47b] !text-[#f1d47b]`}
+            />
             <div>
-              <p className={`${compact ? "text-[6px]" : "text-[clamp(.52rem,1.8vw,.78rem)]"} font-bold tracking-[.2em] text-[#f1d47b]`}>
+              <p
+                className={`${compact ? "text-[6px]" : "text-[clamp(.52rem,1.8vw,.78rem)]"} font-bold tracking-[.2em] text-[#f1d47b]`}
+              >
                 NORTH FOUNTAIN TRUST CREDIT UNION
               </p>
-
             </div>
           </div>
           <NetworkMark brand={brand} compact={compact} />
         </div>
 
-        <div className={`flex items-center ${compact ? "mt-[13%] gap-2" : "mt-[10%] gap-[7%]"}`}>
-          <span className={`relative block rounded-[18%] bg-gradient-to-br from-[#f6df93] via-[#d4ac48] to-[#9b701d] shadow-inner ${compact ? "h-4 w-5" : "h-[clamp(1.6rem,7vw,2.6rem)] w-[clamp(2rem,9vw,3.4rem)]"}`}>
+        <div
+          className={`flex items-center ${compact ? "mt-[13%] gap-2" : "mt-[10%] gap-[7%]"}`}
+        >
+          <span
+            className={`relative block rounded-[18%] bg-gradient-to-br from-[#f6df93] via-[#d4ac48] to-[#9b701d] shadow-inner ${compact ? "h-4 w-5" : "h-[clamp(1.6rem,7vw,2.6rem)] w-[clamp(2rem,9vw,3.4rem)]"}`}
+          >
             <span className="absolute inset-[25%] rounded-sm border border-black/20" />
           </span>
-          <Wifi className={`rotate-90 text-white/65 ${compact ? "size-3" : "size-[clamp(1rem,4vw,1.7rem)]"}`} />
+          <Wifi
+            className={`rotate-90 text-white/65 ${compact ? "size-3" : "size-[clamp(1rem,4vw,1.7rem)]"}`}
+          />
         </div>
 
         <div className="mt-auto">
-          <p className={`${compact ? "text-[7px] tracking-[.12em]" : "text-[clamp(.66rem,2.7vw,1.08rem)] tracking-[.18em]"} whitespace-nowrap font-semibold text-white/90`}>
+          <p
+            className={`${compact ? "text-[7px] tracking-[.12em]" : "text-[clamp(.66rem,2.7vw,1.08rem)] tracking-[.18em]"} whitespace-nowrap font-semibold text-white/90`}
+          >
             •••• &nbsp;•••• &nbsp;•••• &nbsp;{digits}
           </p>
           {!compact && (
             <div className="mt-[7%] flex items-end justify-between gap-4 uppercase text-white/50">
               <div className="min-w-0">
-                <span className="block text-[clamp(.3rem,1vw,.42rem)] tracking-[.12em]">Card holder</span>
+                <span className="block text-[clamp(.3rem,1vw,.42rem)] tracking-[.12em]">
+                  Card holder
+                </span>
                 <span className="mt-0.5 block truncate text-[clamp(.44rem,1.55vw,.66rem)] font-semibold tracking-[.12em] text-white/75">
                   {holder}
                 </span>
               </div>
               <div className="shrink-0 text-right">
-                <span className="block text-[clamp(.3rem,1vw,.42rem)] tracking-[.12em]">Valid thru</span>
+                <span className="block text-[clamp(.3rem,1vw,.42rem)] tracking-[.12em]">
+                  Valid thru
+                </span>
                 <span className="mt-0.5 block text-[clamp(.44rem,1.55vw,.66rem)] font-semibold tracking-[.1em] text-white/75">
                   {expiry}
                 </span>
@@ -96,12 +115,24 @@ export function VirtualCardArt({
   );
 }
 
-function NetworkMark({ brand, compact }: { brand: CardBrand; compact: boolean }) {
+function NetworkMark({
+  brand,
+  compact,
+}: {
+  brand: CardBrand;
+  compact: boolean;
+}) {
   if (brand === "visa")
-    return <SiVisa className={compact ? "text-lg" : "text-[clamp(1.7rem,7vw,3.2rem)]"} />;
+    return (
+      <SiVisa
+        className={compact ? "text-lg" : "text-[clamp(1.7rem,7vw,3.2rem)]"}
+      />
+    );
   if (brand === "amex")
     return (
-      <span className={`${compact ? "text-[5px]" : "text-[clamp(.42rem,1.5vw,.68rem)]"} font-bold tracking-[.12em] text-[#e4c66d]`}>
+      <span
+        className={`${compact ? "text-[5px]" : "text-[clamp(.42rem,1.5vw,.68rem)]"} font-bold tracking-[.12em] text-[#e4c66d]`}
+      >
         CREDIT CARD
       </span>
     );
@@ -125,16 +156,17 @@ export function VirtualCardBack({
   holder?: string;
 }) {
   const credit = brand === "amex";
-  const digits = lastFour || (brand === "visa" ? "4826" : credit ? "8808" : "6241");
+  const digits =
+    lastFour || (brand === "visa" ? "4826" : credit ? "8808" : "6241");
   const background =
     brand === "visa"
-      ? "linear-gradient(135deg,#117676,#06111f)"
+      ? "linear-gradient(135deg,#a77d27,#06111f)"
       : credit
         ? "linear-gradient(135deg,#161a18,#080b0a 60%,#18130a)"
         : "linear-gradient(135deg,#26354f,#06111f)";
   return (
     <div
-      className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#168c8c]/80" : "ring-1 ring-inset ring-white/10"}`}
+      className={`relative aspect-[1.586/1] w-full overflow-hidden rounded-[inherit] text-white ${credit ? "ring-1 ring-inset ring-[#d8b45b]/80" : "ring-1 ring-inset ring-white/10"}`}
       style={{ background }}
     >
       <div className="absolute inset-x-0 top-[17%] h-[22%] bg-[#101211]" />
@@ -150,7 +182,9 @@ export function VirtualCardBack({
         <div>
           <div className="flex items-center gap-2 text-[#f1d47b]">
             <BrandMark className="size-[clamp(1rem,3.5vw,1.7rem)] [--mark-path:#f1d47b] !text-[#f1d47b]" />
-            <span className="text-[clamp(.48rem,1.7vw,.74rem)] font-bold tracking-[.2em]">NORTH FOUNTAIN TRUST CREDIT UNION</span>
+            <span className="text-[clamp(.48rem,1.7vw,.74rem)] font-bold tracking-[.2em]">
+              NORTH FOUNTAIN TRUST CREDIT UNION
+            </span>
           </div>
           <p className="mt-1 text-[clamp(.3rem,1vw,.43rem)] text-white/45">
             This card is issued for authorized use only. support@nftcunion.com

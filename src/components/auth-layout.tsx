@@ -36,7 +36,7 @@ export function AuthLayout({
             <Logo />
           </div>
           <div className="absolute inset-x-10 bottom-10 text-white">
-            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-[#89d0ca]">
+            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-[#e4c979]">
               <Sparkles size={14} />
               Member-owned banking
             </div>
@@ -55,11 +55,11 @@ export function AuthLayout({
           )}
           <div className="absolute inset-x-5 top-5 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[.14em] text-slate-400 sm:inset-x-8">
             <span className="flex items-center gap-2">
-              <Fingerprint size={15} className="text-[#168c8c]" />
+              <Fingerprint size={15} className="text-[#d8b45b]" />
               Protected access
             </span>
             <span className="flex items-center gap-2">
-              <LockKeyhole size={13} className="text-[#168c8c]" />
+              <LockKeyhole size={13} className="text-[#d8b45b]" />
               Encrypted
             </span>
           </div>

@@ -76,7 +76,7 @@ export default function Home() {
             <div className="mt-11 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/15 pt-6 text-xs text-white/62">
               {hero.assurances.map((item) => (
                 <span key={item} className="flex items-center gap-2">
-                  <Check size={14} className="text-[#78c8c0]" />
+                  <Check size={14} className="text-[#d8b45b]" />
                   {item}
                 </span>
               ))}
@@ -128,7 +128,7 @@ export default function Home() {
           <div className="mt-14 grid overflow-hidden rounded-[34px] bg-[#f4efe4] lg:grid-cols-[.9fr_1.1fr]">
             <div className="relative min-h-[440px]">
               <Image
-                src="/images/nftcunion-members-editorial-v3.webp"
+                src="/images/nftcunion-members-editorial-v4.webp"
                 alt="A member reviewing plans with a financial guide"
                 fill
                 quality={95}
@@ -211,7 +211,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-[1180px] gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
           <div className="relative min-h-[560px] overflow-hidden rounded-[12%_36px_12%_36px]">
             <Image
-              src="/images/nftcunion-security-editorial-v3.webp"
+              src="/images/nftcunion-security-editorial-v4.webp"
               alt="Secure mobile account access"
               fill
               quality={95}
@@ -247,25 +247,6 @@ export default function Home() {
               </footer>
             </blockquote>
           </div>
-        </div>
-      </section>
-
-      <section className="px-5 pb-16 sm:px-8 lg:pb-20">
-        <div className="mx-auto flex max-w-[1180px] flex-col items-start justify-between gap-8 rounded-[38px] bg-[#c8ae72] px-7 py-12 sm:px-12 lg:flex-row lg:items-center">
-          <div>
-            <p className="text-[10px] font-bold uppercase tracking-[.2em]">
-              Your next chapter
-            </p>
-            <h2 className="mt-3 font-serif text-4xl font-normal">
-              Membership begins with one conversation.
-            </h2>
-          </div>
-          <AuthTransitionLink
-            href="/register"
-            className="inline-flex min-h-14 shrink-0 items-center gap-2 rounded-full bg-[#0b1f3a] px-7 text-sm font-semibold text-white"
-          >
-            Open your account <ArrowRight size={16} />
-          </AuthTransitionLink>
         </div>
       </section>
 

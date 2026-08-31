@@ -105,7 +105,7 @@ function DashboardBackdrop() {
       </aside>
       <section className="flex-1 p-10">
         <div className="h-8 w-64 rounded-lg bg-slate-300" />
-        <div className="mt-8 h-56 rounded-3xl bg-gradient-to-br from-[#168c8c] via-[#117676] to-[#0b1f3a] shadow-xl" />
+        <div className="mt-8 h-56 rounded-3xl bg-gradient-to-br from-[#d8b45b] via-[#a77d27] to-[#0b1f3a] shadow-xl" />
         <div className="mt-8 grid grid-cols-4 gap-5">
           {["bg-gold-100", "bg-gold-100", "bg-fuchsia-100", "bg-lime-100"].map(
             (tone, index) => (

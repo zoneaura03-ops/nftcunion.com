@@ -50,7 +50,7 @@ export default function CorporateBankingPage() {
           </p>
           <AuthTransitionLink
             href="/register"
-            className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#168c8c] px-6 text-sm font-bold text-[#0b1f3a] hover:bg-[#e3c777]"
+            className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#d8b45b] px-6 text-sm font-bold text-[#0b1f3a] hover:bg-[#e3c777]"
           >
             Open a business account <ArrowRight size={16} />
           </AuthTransitionLink>

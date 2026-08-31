@@ -6,8 +6,8 @@
   --brand: #0b1f3a;
   --brand-dark: #0e172b;
   --brand-soft: #f1f4f9;
-  --gold: #168c8c;
-  --gold-deep: #117676;
+  --gold: #d8b45b;
+  --gold-deep: #a77d27;
   --gold-soft: #fffaf0;
   --ink: #0b1f3a;
   --muted: #667085;
@@ -40,7 +40,7 @@ body {
   top: 1rem;
 }
 :focus-visible {
-  outline: 3px solid #168c8c;
+  outline: 3px solid #d8b45b;
   outline-offset: 3px;
 }
 @media (prefers-reduced-motion: reduce) {

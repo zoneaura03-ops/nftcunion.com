@@ -109,7 +109,7 @@ export function AdminShell({
             <Logo href="/admin" />
           </div>
           <div className="mt-4 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.22em] text-gold-300/55">
-            <span className="size-1.5 rounded-full bg-gold-400 shadow-[0_0_12px_#168c8c]" />{" "}
+            <span className="size-1.5 rounded-full bg-gold-400 shadow-[0_0_12px_#d8b45b]" />{" "}
             Operations console
           </div>
         </div>
@@ -124,7 +124,7 @@ export function AdminShell({
                   <Link
                     key={href}
                     href={href}
-                    className={`group flex items-center gap-3 rounded-xl px-3 py-3 text-[13px] font-medium transition ${active(href) ? "bg-gradient-to-r from-gold-500/25 to-gold-400/10 text-white shadow-[inset_3px_0_0_#168c8c]" : "text-white/60 hover:bg-white/[.06] hover:text-white"}`}
+                    className={`group flex items-center gap-3 rounded-xl px-3 py-3 text-[13px] font-medium transition ${active(href) ? "bg-gradient-to-r from-gold-500/25 to-gold-400/10 text-white shadow-[inset_3px_0_0_#d8b45b]" : "text-white/60 hover:bg-white/[.06] hover:text-white"}`}
                   >
                     <Icon
                       size={17}

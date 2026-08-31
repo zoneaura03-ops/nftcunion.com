@@ -26,13 +26,13 @@ export function BrandMark({ className = "h-9 w-9" }: { className?: string }) {
       />
       <path
         d="M17 42c5-8 10-11 15-11s10 3 15 11"
-        stroke="var(--logo-teal,#2a8f8a)"
+        stroke="var(--logo-gold,#d8b45b)"
         strokeWidth="2.6"
         strokeLinecap="round"
       />
       <path
         d="M22 48c3-7 6-10 10-10s7 3 10 10"
-        stroke="var(--logo-teal,#2a8f8a)"
+        stroke="var(--logo-gold,#d8b45b)"
         strokeWidth="2.3"
         strokeLinecap="round"
       />
@@ -57,10 +57,12 @@ export default function Logo({
   compact = false,
   href = "/",
   sidebar = false,
+  inverse = false,
 }: {
   compact?: boolean;
   href?: string;
   sidebar?: boolean;
+  inverse?: boolean;
 }) {
   return (
     <Link
@@ -73,12 +75,12 @@ export default function Logo({
       />
       {!compact && (
         <span
-          className={`leading-tight uppercase text-[#0b1f3a] ${sidebar ? "text-[9px] tracking-[.12em]" : "text-[11px] tracking-[.17em] sm:text-[13px]"}`}
+          className={`leading-tight uppercase ${inverse ? "text-white" : "text-[#0b1f3a]"} ${sidebar ? "text-[9px] tracking-[.12em]" : "text-[11px] tracking-[.17em] sm:text-[13px]"}`}
         >
           <span className="block whitespace-nowrap font-medium">
             North Fountain
           </span>
-          <span className="mt-1 block whitespace-nowrap text-[.63em] font-medium tracking-[.24em] text-[#2a8f8a]">
+          <span className="mt-1 block whitespace-nowrap text-[.63em] font-medium tracking-[.24em] text-[#d8b45b]">
             Trust Credit Union
           </span>
         </span>

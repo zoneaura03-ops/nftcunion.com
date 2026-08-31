@@ -29,10 +29,10 @@ export function PublicFooter() {
         <div className="grid gap-10 border-b border-white/12 pb-14 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[.22em] text-[#d8b45b]">
-              A better banking relationship
+              Your next chapter · A better banking relationship
             </p>
             <h2 className="mt-5 max-w-2xl font-serif text-4xl font-normal leading-tight sm:text-5xl">
-              Your goals deserve more than an account number.
+              Membership begins with one conversation.
             </h2>
           </div>
           <a
@@ -60,7 +60,7 @@ export function PublicFooter() {
             </h3>
             <ul className="mt-6 space-y-5 text-sm leading-6 text-white/58">
               <li className="flex gap-3">
-                <MapPin className="mt-1 shrink-0 text-[#78c8c0]" size={17} />
+                <MapPin className="mt-1 shrink-0 text-[#d8b45b]" size={17} />
                 <span>{footer.address}</span>
               </li>
               <li>
@@ -68,12 +68,12 @@ export function PublicFooter() {
                   className="flex items-center gap-3 hover:text-white"
                   href={`mailto:${footer.email}`}
                 >
-                  <Mail className="shrink-0 text-[#78c8c0]" size={17} />
+                  <Mail className="shrink-0 text-[#d8b45b]" size={17} />
                   {footer.email}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Clock3 className="shrink-0 text-[#78c8c0]" size={17} />
+                <Clock3 className="shrink-0 text-[#d8b45b]" size={17} />
                 Digital support, around the clock
               </li>
             </ul>
