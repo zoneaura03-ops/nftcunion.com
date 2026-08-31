@@ -533,7 +533,7 @@ export function DashboardShell({
             <button
               aria-label="Close navigation"
               onClick={() => setDrawer(false)}
-              className="fixed inset-0 z-40 bg-[#071b12]/55 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-[#07182c]/55 backdrop-blur-sm lg:hidden"
             />
             <aside className="fixed inset-y-0 left-0 z-50 flex w-[78%] min-w-[286px] max-w-[430px] flex-col bg-white shadow-2xl lg:hidden">
               <div className="border-b border-[#e2e7f0] p-5">

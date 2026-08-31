@@ -43,9 +43,9 @@ export default function FeaturesPage() {
             Banking solutions for every ambition.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
-            From everyday spending to business growth, North Fountain Trust Credit Union brings secure
-            accounts, cards, transfers, lending, and investment tools together
-            in one clear experience.
+            From everyday spending to business growth, North Fountain Trust
+            Credit Union brings secure accounts, cards, transfers, lending, and
+            investment tools together in one clear experience.
           </p>
           <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
             <AuthTransitionLink href="/register" className="btn min-w-48">
@@ -65,7 +65,7 @@ export default function FeaturesPage() {
           <p className="text-xs font-bold uppercase tracking-[.2em] text-bank-600">
             Everything in one place
           </p>
-          <h2 className="mt-4 max-w-2xl text-4xl leading-tight text-[#152219] sm:text-5xl">
+          <h2 className="mt-4 max-w-2xl text-4xl leading-tight text-[#0b1f3a] sm:text-5xl">
             Choose the account that fits your next move.
           </h2>
           <p className="mt-5 max-w-2xl text-sm leading-7 text-neutral-500">
@@ -153,7 +153,7 @@ export default function FeaturesPage() {
           <p className="text-xs font-bold uppercase tracking-[.2em] text-bank-600">
             Designed around you
           </p>
-          <h2 className="mt-4 text-4xl text-[#152219] sm:text-5xl">
+          <h2 className="mt-4 text-4xl text-[#0b1f3a] sm:text-5xl">
             Personal clarity. Business capability.
           </h2>
           <div className="mt-12 grid gap-6 text-left md:grid-cols-2">
@@ -182,12 +182,12 @@ export default function FeaturesPage() {
         </div>
       </section>
       <section className="bg-[#e9f1eb] px-5 py-20 text-center sm:px-8">
-        <h2 className="mx-auto max-w-2xl text-4xl text-[#152219] sm:text-5xl">
+        <h2 className="mx-auto max-w-2xl text-4xl text-[#0b1f3a] sm:text-5xl">
           Ready for banking that keeps up?
         </h2>
         <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-neutral-600">
-          Create your North Fountain Trust Credit Union profile and start building toward what matters
-          next.
+          Create your North Fountain Trust Credit Union profile and start
+          building toward what matters next.
         </p>
         <AuthTransitionLink href="/register" className="btn mt-8">
           Get started today <ArrowRight size={16} />
