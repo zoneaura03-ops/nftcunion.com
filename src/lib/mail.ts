@@ -30,7 +30,7 @@ function brandLogoAttachment() {
       process.cwd(),
       "public",
       "images",
-      "nftcunion-email-logo.png",
+      "nftcunion-email-logo-v2.png",
     ),
     cid: brandLogoCid,
   };
