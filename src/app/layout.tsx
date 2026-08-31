@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { NavigationLoader } from "../components/navigation-loader";
 import { IdleSessionGuard } from "../components/idle-session-guard";
 import "./globals.css";
 export const metadata: Metadata = {
-  title: { default: "North Fountain Trust Credit Union", template: "%s | North Fountain Trust Credit Union" },
+  title: {
+    default: "North Fountain Trust Credit Union",
+    template: "%s | North Fountain Trust Credit Union",
+  },
   description: "Credible, innovative and secured banking.",
   applicationName: "North Fountain Trust Credit Union",
   manifest: "/manifest.webmanifest",
@@ -39,7 +41,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <IdleSessionGuard />
-        <NavigationLoader>{children}</NavigationLoader>
+        {children}
       </body>
     </html>
   );

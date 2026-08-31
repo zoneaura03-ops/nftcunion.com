@@ -1,99 +1,80 @@
 import Link from "next/link";
-import {
-  Clock3,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-} from "lucide-react";
+import { ArrowUpRight, Clock3, Mail, MapPin } from "lucide-react";
 import { publicContent } from "../lib/public-content";
 import Logo from "./logo";
 
 const companyLinks = [
-  ["About us", "/about"],
-  ["Our services", "/features"],
-  ["Corporate banking", "/corporate-banking"],
-  ["Contact us", "/#contact"],
+  ["Our story", "/about"],
+  ["Member services", "/features"],
+  ["Business membership", "/corporate-banking"],
+  ["Contact", "/#contact"],
 ] as const;
-
 const serviceLinks = [
-  ["Personal banking", "/features#personal"],
-  ["Business banking", "/corporate-banking"],
+  ["Everyday banking", "/features#personal"],
+  ["Savings", "/features"],
   ["Cards & payments", "/features#cards"],
-  ["International banking", "/features#international"],
+  ["International transfers", "/features#international"],
 ] as const;
 
 export function PublicFooter() {
   const { footer } = publicContent;
-
   return (
     <footer
       id="contact"
-      className="bg-[#06111f] px-5 pb-8 pt-16 text-white sm:px-8 lg:pt-20"
+      className="border-t border-[#dce8e6] bg-[#f1f7f6] px-5 pb-8 pt-14 text-[#0b1f3a] sm:px-8 lg:pt-20"
     >
-      <div className="mx-auto grid max-w-[1100px] gap-12 border-b border-white/10 pb-14 sm:grid-cols-2 lg:grid-cols-[1.35fr_.8fr_.9fr_1.25fr]">
-        <div>
-          <div className="inline-flex rounded-xl bg-white px-3 py-2 shadow-lg shadow-black/10">
+      <div className="mx-auto max-w-[1180px]">
+        <div className="grid gap-12 rounded-[34px] bg-white p-7 shadow-[0_22px_70px_rgba(11,31,58,.06)] sm:p-10 lg:grid-cols-[1.35fr_.75fr_.85fr_1.15fr]">
+          <div>
             <Logo />
+            <p className="mt-6 max-w-sm text-sm leading-7 text-slate-500">
+              {footer.description}
+            </p>
+            <a
+              href="mailto:support@nftcunion.com"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#e3f2f0] px-5 py-3 text-xs font-semibold text-[#117676]"
+            >
+              Talk to member care <ArrowUpRight size={14} />
+            </a>
           </div>
-          <p className="mt-5 max-w-xs text-sm leading-7 text-white/50">
-            {footer.description}
-          </p>
-          <div className="mt-6 flex gap-2">
-            {[Facebook, Instagram, Linkedin].map((Icon, index) => (
-              <a
-                key={index}
-                href="#"
-                aria-label={["Facebook", "Instagram", "LinkedIn"][index]}
-                className="grid size-9 place-items-center rounded-full border border-white/10 text-white/55 transition hover:border-gold-300/50 hover:text-gold-300"
-              >
-                <Icon size={15} />
-              </a>
+          <FooterLinks title="Explore" links={companyLinks} />
+          <FooterLinks title="Banking" links={serviceLinks} />
+          <div>
+            <h3 className="text-[11px] font-bold uppercase tracking-[.18em] text-[#168c8c]">
+              Member care
+            </h3>
+            <ul className="mt-6 space-y-5 text-sm leading-6 text-slate-500">
+              <li className="flex gap-3">
+                <MapPin className="mt-1 shrink-0 text-[#c8ae72]" size={17} />
+                <span>{footer.address}</span>
+              </li>
+              <li>
+                <a
+                  className="flex items-center gap-3 hover:text-[#117676]"
+                  href={`mailto:${footer.email}`}
+                >
+                  <Mail className="shrink-0 text-[#c8ae72]" size={17} />
+                  {footer.email}
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Clock3 className="shrink-0 text-[#c8ae72]" size={17} />
+                Digital support, around the clock
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex flex-col justify-between gap-4 px-2 pt-8 text-[11px] text-slate-500 sm:flex-row sm:items-center">
+          <span>
+            © 2026 North Fountain Trust Credit Union. All rights reserved.
+          </span>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            {["Privacy", "Terms", "Security", "Accessibility"].map((item) => (
+              <Link key={item} href="/legal" className="hover:text-[#117676]">
+                {item}
+              </Link>
             ))}
           </div>
-        </div>
-        <FooterLinks title="Company" links={companyLinks} />
-        <FooterLinks title="Services" links={serviceLinks} />
-        <div>
-          <h3 className="text-base font-semibold">Contact & support</h3>
-          <ul className="mt-5 space-y-4 text-sm leading-6 text-white/50">
-            <li className="flex gap-3">
-              <MapPin className="mt-1 shrink-0 text-gold-300" size={16} />
-              <span>{footer.address}</span>
-            </li>
-            <li>
-              <a
-                className="flex items-center gap-3 transition hover:text-white"
-                href={`mailto:${footer.email}`}
-              >
-                <Mail className="shrink-0 text-gold-300" size={16} />
-                {footer.email}
-              </a>
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Clock3 className="shrink-0 text-gold-300" size={16} />
-              Support available 24/7
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="mx-auto flex max-w-[1100px] flex-col justify-between gap-3 pt-7 text-xs text-white/40 sm:flex-row sm:items-center">
-        <span>© 2026 North Fountain Trust Credit Union. All rights reserved.</span>
-        <div className="flex flex-wrap gap-x-5 gap-y-2">
-          <Link href="/legal" className="hover:text-white">
-            Privacy
-          </Link>
-          <Link href="/legal" className="hover:text-white">
-            Terms
-          </Link>
-          <Link href="/legal" className="hover:text-white">
-            Security
-          </Link>
-          <Link href="/legal" className="hover:text-white">
-            Accessibility
-          </Link>
         </div>
       </div>
     </footer>
@@ -109,11 +90,16 @@ function FooterLinks({
 }) {
   return (
     <div>
-      <h3 className="text-base font-semibold">{title}</h3>
-      <ul className="mt-5 space-y-3 text-sm text-white/50">
+      <h3 className="text-[11px] font-bold uppercase tracking-[.18em] text-[#168c8c]">
+        {title}
+      </h3>
+      <ul className="mt-6 space-y-4 text-sm text-slate-500">
         {links.map(([label, href]) => (
           <li key={label}>
-            <Link href={href} className="transition hover:text-white">
+            <Link
+              href={href}
+              className="inline-flex items-center gap-1 hover:text-[#117676]"
+            >
               {label}
             </Link>
           </li>
@@ -122,5 +108,3 @@ function FooterLinks({
     </div>
   );
 }
-
-// Hostinger source snapshot sync.

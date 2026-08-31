@@ -2,7 +2,6 @@ import Image from "next/image";
 import {
   ArrowRight,
   BadgeCheck,
-  ChartPie,
   Check,
   CreditCard,
   Globe2,
@@ -11,8 +10,6 @@ import {
   Landmark,
   LockKeyhole,
   PiggyBank,
-  Quote,
-  ScanFace,
   ShieldCheck,
   Smartphone,
   UserPlus,
@@ -25,108 +22,96 @@ import { PublicHeader } from "../components/public-header";
 import { publicContent } from "../lib/public-content";
 
 const productIcons = [Landmark, PiggyBank, CreditCard, HandCoins];
-const benefitIcons = [Globe2, Smartphone, ChartPie, Headphones];
+const benefitIcons = [Globe2, Smartphone, ShieldCheck, Headphones];
 const stepIcons = [UserPlus, BadgeCheck, WalletCards];
-
-function Heading({
-  eyebrow,
-  title,
-  copy,
-  center = false,
-}: {
-  eyebrow: string;
-  title: string;
-  copy?: string;
-  center?: boolean;
-}) {
-  return (
-    <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-xl"}>
-      <p className="text-[11px] font-bold uppercase tracking-[.2em] text-bank-600">
-        {eyebrow}
-      </p>
-      <h2 className="mt-4 text-[38px] font-normal leading-[1.12] tracking-[-.02em] sm:text-[48px]">
-        {title}
-      </h2>
-      {copy && (
-        <p className="mt-5 text-[15px] leading-7 text-neutral-500">{copy}</p>
-      )}
-    </div>
-  );
-}
 
 export default function Home() {
   const { hero, proof, products, benefits, steps, security, testimonials } =
     publicContent;
   return (
-    <main id="main-content" className="bg-white">
+    <main
+      id="main-content"
+      className="overflow-hidden bg-[#fbfcfa] text-[#0b1f3a]"
+    >
       <PublicHeader />
-      <section className="relative isolate min-h-[700px] overflow-hidden text-white lg:min-h-[calc(100svh-78px)]">
-        <Image
-          src="/images/nftcunion-corporate-hero-v2.webp"
-          alt="North Fountain Trust Credit Union banking professional"
-          fill
-          priority
-          sizes="100vw"
-          className="absolute inset-0 -z-30 object-cover object-[68%_center] lg:object-center"
-        />
-        <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(7,17,32,.97),rgba(10,23,40,.88)_44%,rgba(214,180,95,.18))]" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#06111f]/78 via-transparent to-transparent" />
-        <div className="mx-auto flex min-h-[700px] max-w-[1180px] items-center px-5 py-16 sm:px-8 lg:min-h-[calc(100svh-78px)]">
-          <div className="max-w-[650px] text-center lg:text-left">
-            <p className="inline-flex rounded-full border border-gold-300/35 bg-black/15 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.14em] text-gold-300">
-              &#x1F3C6; {hero.eyebrow}
+
+      <section className="relative px-5 pb-20 pt-10 sm:px-8 lg:pb-28 lg:pt-14">
+        <div className="absolute -left-40 top-16 h-80 w-80 rounded-full bg-[#dbeeed]/70 blur-3xl" />
+        <div className="relative mx-auto grid max-w-[1220px] gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
+          <div className="max-w-xl py-8 lg:py-14">
+            <p className="inline-flex items-center gap-2 rounded-full border border-[#168c8c]/20 bg-white px-4 py-2 text-[10px] font-semibold uppercase tracking-[.16em] text-[#117676] shadow-sm">
+              <span className="size-1.5 rounded-full bg-[#c8ae72]" />{" "}
+              {hero.eyebrow}
             </p>
-            <h1 className="mt-7 text-[44px] font-normal leading-[1.07] tracking-[-.035em] sm:text-[62px] lg:text-[68px]">
-              {hero.title}
+            <h1 className="mt-8 font-serif text-[48px] font-normal leading-[1.02] tracking-[-.045em] sm:text-[66px] lg:text-[76px]">
+              A clearer path to{" "}
+              <span className="italic text-[#168c8c]">
+                financial wellbeing.
+              </span>
             </h1>
-            <p className="mt-6 max-w-[580px] text-[15px] leading-7 text-white/75 sm:text-base">
+            <p className="mt-7 max-w-lg text-[16px] leading-8 text-slate-600">
               {hero.description}
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <AuthTransitionLink
                 href="/register"
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-md bg-[#168c8c] px-7 text-sm font-bold text-[#0b1f3a] hover:bg-[#e3c777]"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#0b1f3a] px-7 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(11,31,58,.18)] hover:-translate-y-0.5 hover:bg-[#123252]"
               >
-                {hero.primaryAction}
-                <ArrowRight size={16} />
+                Become a member <ArrowRight size={16} />
               </AuthTransitionLink>
               <AuthTransitionLink
                 href="/login"
-                className="inline-flex min-h-14 items-center justify-center rounded-md border border-white/45 bg-white/[.06] px-7 text-sm font-semibold"
+                className="inline-flex min-h-14 items-center justify-center rounded-full border border-[#0b1f3a]/15 bg-white px-7 text-sm font-semibold hover:border-[#168c8c]/40 hover:bg-[#f2f9f8]"
               >
                 {hero.secondaryAction}
               </AuthTransitionLink>
             </div>
-            <div className="mt-12 grid grid-cols-3 gap-3 border-t border-white/20 pt-6 text-[10px] text-white/65">
-              {hero.assurances.map((x, i) => (
-                <span
-                  className="flex items-center justify-center gap-2 lg:justify-start"
-                  key={x}
-                >
-                  {i === 0 ? (
-                    <ShieldCheck size={14} className="text-gold-300" />
-                  ) : i === 1 ? (
-                    <LockKeyhole size={14} className="text-gold-300" />
-                  ) : (
-                    <Headphones size={14} className="text-gold-300" />
-                  )}{" "}
-                  {x}
+            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-xs text-slate-500">
+              {hero.assurances.map((item) => (
+                <span key={item} className="flex items-center gap-2">
+                  <Check size={14} className="text-[#168c8c]" />
+                  {item}
                 </span>
               ))}
+            </div>
+          </div>
+
+          <div className="relative min-h-[520px] lg:min-h-[650px]">
+            <div className="absolute inset-0 overflow-hidden rounded-[38%_8%_32%_8%] bg-[#0b1f3a] shadow-[0_35px_90px_rgba(11,31,58,.18)]">
+              <Image
+                src="/images/nftcunion-corporate-hero-v2.webp"
+                alt="A North Fountain financial guide meeting a member"
+                fill
+                priority
+                sizes="(min-width:1024px) 56vw,100vw"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f3a]/35 via-transparent to-transparent" />
+            </div>
+            <div className="absolute -bottom-6 left-4 max-w-[270px] rounded-3xl border border-white/70 bg-white/95 p-5 shadow-[0_18px_50px_rgba(11,31,58,.16)] backdrop-blur sm:left-8">
+              <p className="text-[10px] font-bold uppercase tracking-[.18em] text-[#168c8c]">
+                Member first
+              </p>
+              <p className="mt-2 font-serif text-xl leading-7">
+                Guidance shaped around your life, not a product quota.
+              </p>
+            </div>
+            <div className="absolute right-3 top-8 rounded-full border border-white/40 bg-[#0b1f3a]/80 px-5 py-3 text-xs text-white backdrop-blur sm:right-6">
+              Federally insured savings
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-b" aria-label="Trust and social proof">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-px bg-[#e2e7f0] sm:grid-cols-3 lg:grid-cols-5">
-          {proof.map(([mark, copy], i) => (
+      <section className="px-5 py-10 sm:px-8">
+        <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-3 rounded-[28px] border border-[#dce8e6] bg-white p-3 shadow-[0_16px_55px_rgba(11,31,58,.05)] sm:grid-cols-3 lg:grid-cols-5">
+          {proof.map(([mark, copy], index) => (
             <div
               key={mark}
-              className={`flex min-h-24 flex-col items-center justify-center bg-white px-3 text-center ${i === 4 ? "col-span-2 sm:col-span-1" : ""}`}
+              className={`${index === 4 ? "col-span-2 sm:col-span-1" : ""} rounded-2xl px-4 py-6 text-center hover:bg-[#f2f8f7]`}
             >
-              <b className="text-sm tracking-[.1em] text-bank-700">{mark}</b>
-              <span className="mt-2 text-[9px] uppercase tracking-[.1em] text-neutral-400">
+              <b className="text-sm tracking-[.12em]">{mark}</b>
+              <span className="mt-2 block text-[9px] uppercase tracking-[.12em] text-slate-400">
                 {copy}
               </span>
             </div>
@@ -134,52 +119,55 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="features"
-        className="bg-[#f7f9fc] px-5 py-24 sm:px-8 sm:py-28"
-      >
-        <div className="mx-auto max-w-[1100px]">
-          <Heading
-            center
-            eyebrow="Accounts and services"
-            title="Banking for real life and real business."
-            copy="Four essential products, one secure relationship."
-          />
-          <div className="mt-12 grid overflow-hidden rounded-lg border border-[#e2e7f0] bg-white lg:grid-cols-2">
-            <div className="relative min-h-[360px] lg:min-h-full">
+      <section id="features" className="px-5 py-24 sm:px-8 lg:py-32">
+        <div className="mx-auto max-w-[1180px]">
+          <div className="grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:items-end">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#168c8c]">
+                Made for members
+              </p>
+              <h2 className="mt-5 font-serif text-[42px] font-normal leading-[1.08] sm:text-[56px]">
+                Everyday banking, thoughtfully connected.
+              </h2>
+            </div>
+            <p className="max-w-xl text-[15px] leading-8 text-slate-500">
+              From your first checking account to the plans that shape your
+              future, one cooperative relationship keeps everything clear.
+            </p>
+          </div>
+          <div className="mt-14 grid overflow-hidden rounded-[34px] bg-[#eaf4f3] lg:grid-cols-[.9fr_1.1fr]">
+            <div className="relative min-h-[440px]">
               <Image
                 src="/images/nftcunion-business-services-v2.webp"
-                alt="Business owner using North Fountain Trust Credit Union digital banking"
+                alt="A member reviewing plans with a financial guide"
                 fill
-                sizes="(min-width:1024px) 50vw,100vw"
+                sizes="(min-width:1024px) 45vw,100vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-bank-900/65 via-transparent to-transparent" />
-              <p className="absolute bottom-6 left-6 max-w-xs font-serif text-3xl text-white">
-                Your ambitions deserve a bank that keeps up.
-              </p>
             </div>
-            <div className="grid sm:grid-cols-2">
-              {products.slice(0, 4).map(([title, benefit, copy], i) => {
-                const Icon = productIcons[i];
+            <div className="grid bg-white/55 p-4 sm:grid-cols-2 sm:p-7">
+              {products.slice(0, 4).map(([title, benefit, copy], index) => {
+                const Icon = productIcons[index];
                 return (
                   <article
-                    className="border-b border-[#e2e7f0] p-6 odd:sm:border-r"
                     key={title}
+                    className="group rounded-3xl p-6 transition hover:bg-white hover:shadow-[0_14px_40px_rgba(11,31,58,.08)]"
                   >
-                    <Icon className="text-gold-500" size={22} />
-                    <h3 className="mt-5 text-xl">{title}</h3>
-                    <p className="mt-2 text-xs font-semibold text-bank-600">
+                    <span className="grid size-11 place-items-center rounded-2xl bg-[#dff0ee] text-[#117676]">
+                      <Icon size={20} />
+                    </span>
+                    <h3 className="mt-6 font-serif text-2xl">{title}</h3>
+                    <p className="mt-2 text-xs font-semibold text-[#168c8c]">
                       {benefit}
                     </p>
-                    <p className="mt-3 text-xs leading-5 text-neutral-500">
+                    <p className="mt-3 text-xs leading-6 text-slate-500">
                       {copy}
                     </p>
                     <AuthTransitionLink
                       href="/register"
-                      className="mt-5 inline-flex items-center gap-1 text-xs font-semibold text-bank-700"
+                      className="mt-5 inline-flex items-center gap-2 text-xs font-semibold"
                     >
-                      Open account <ArrowRight size={13} />
+                      Explore <ArrowRight size={13} />
                     </AuthTransitionLink>
                   </article>
                 );
@@ -189,175 +177,102 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 py-24 sm:px-8 sm:py-28">
-        <div className="mx-auto max-w-[1100px]">
-          <Heading
-            center
-            eyebrow="Why North Fountain Trust Credit Union"
-            title="Everything important, nothing complicated."
-            copy="Useful tools supported by real people and protection that works quietly in the background."
-          />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {benefits.slice(0, 4).map(([title, copy], i) => {
-              const Icon = benefitIcons[i];
+      <section className="bg-[#0b1f3a] px-5 py-24 text-white sm:px-8 lg:py-32">
+        <div className="mx-auto max-w-[1180px]">
+          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#74c5bf]">
+                Your financial pathway
+              </p>
+              <h2 className="mt-5 max-w-2xl font-serif text-[42px] font-normal leading-[1.08] sm:text-[56px]">
+                Start simply. Grow confidently.
+              </h2>
+            </div>
+            <p className="max-w-md text-sm leading-7 text-white/55">
+              Membership opens a relationship designed to evolve as your plans
+              do.
+            </p>
+          </div>
+          <ol className="mt-14 grid gap-4 lg:grid-cols-3">
+            {steps.map(([title, copy], index) => {
+              const Icon = stepIcons[index];
               return (
-                <article
-                  className="rounded-lg border border-[#e2e7f0] p-6"
+                <li
                   key={title}
+                  className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[.055] p-7"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-md bg-gold-50 text-gold-600">
+                  <span className="absolute right-5 top-2 font-serif text-7xl text-white/[.04]">
+                    0{index + 1}
+                  </span>
+                  <span className="grid size-12 place-items-center rounded-full bg-[#168c8c] text-white">
                     <Icon size={20} />
                   </span>
-                  <h3 className="mt-6 font-sans text-sm font-semibold">
-                    {title}
-                  </h3>
-                  <p className="mt-3 text-xs leading-6 text-neutral-500">
-                    {copy}
-                  </p>
-                </article>
+                  <h3 className="mt-8 font-serif text-2xl">{title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-white/55">{copy}</p>
+                </li>
               );
             })}
-          </div>
+          </ol>
         </div>
       </section>
 
-      <section className="bg-bank-900 px-5 py-24 text-white sm:px-8 sm:py-28">
-        <div className="mx-auto grid max-w-[1100px] gap-14 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-          <div>
-            <p className="text-[11px] font-bold uppercase tracking-[.2em] text-gold-400">
-              How it works
-            </p>
-            <h2 className="mt-4 text-[40px] font-normal leading-[1.12] sm:text-[48px]">
-              Open, verify, and bank with confidence.
-            </h2>
-            <ol className="mt-9 space-y-7">
-              {steps.map(([title, copy], i) => {
-                const Icon = stepIcons[i];
-                return (
-                  <li className="flex gap-4" key={title}>
-                    <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-gold-600">
-                      <Icon size={18} />
-                    </span>
-                    <div>
-                      <h3 className="font-sans font-semibold">{title}</h3>
-                      <p className="mt-1 text-sm leading-6 text-white/55">
-                        {copy}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
-            </ol>
-            <AuthTransitionLink
-              href="/register"
-              className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-md bg-[#168c8c] px-6 text-sm font-bold text-[#0b1f3a] hover:bg-[#e3c777]"
-            >
-              Get started <ArrowRight size={15} />
-            </AuthTransitionLink>
-          </div>
-          <div className="rounded-[30px] border border-white/10 bg-white/[.08] p-3 shadow-[0_28px_80px_rgba(4,13,28,.28)]">
-            <div className="rounded-[24px] bg-white p-6 text-[#0b1f3a] shadow-[0_18px_55px_rgba(7,17,32,.16)]">
-              <div className="flex items-center justify-between border-b border-slate-200 pb-5">
-                <div>
-                  <p className="text-xs text-neutral-400">Available balance</p>
-                  <p className="mt-1 font-serif text-3xl font-semibold tracking-tight text-[#0b1f3a]">
-                    {"\u00a39,844.65"}
-                  </p>
-                </div>
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-gold-50 text-gold-600">
-                  <ScanFace size={20} />
-                </span>
-              </div>
-              <div className="mt-5 grid grid-cols-3 gap-2">
-                {["Transfer", "Deposit", "Cards"].map((x) => (
-                  <div
-                    className="rounded-xl border border-gold-100 bg-gold-50/70 p-4 text-center text-xs font-semibold text-[#0b1f3a]"
-                    key={x}
-                  >
-                    {x}
-                  </div>
-                ))}
-              </div>
-              {["Salary payment", "Online transfer", "Savings goal"].map(
-                (x, i) => (
-                  <div
-                    className="mt-3 flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3.5 text-xs shadow-sm"
-                    key={x}
-                  >
-                    <span>{x}</span>
-                    <b className={i === 1 ? "text-rose-600" : "text-bank-600"}>
-                      {i === 1
-                        ? "\u2212\u00a3100.00"
-                        : `+\u00a3${[2500, 0, 300][i]}.00`}
-                    </b>
-                  </div>
-                ),
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-5 py-24 sm:px-8 sm:py-28">
-        <div className="mx-auto grid max-w-[1100px] gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="relative min-h-[420px] overflow-hidden rounded-lg">
+      <section className="px-5 py-24 sm:px-8 lg:py-32">
+        <div className="mx-auto grid max-w-[1180px] gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
+          <div className="relative min-h-[560px] overflow-hidden rounded-[12%_36px_12%_36px]">
             <Image
               src="/images/nftcunion-security-trust-v2.webp"
-              alt="Secure mobile banking authentication"
+              alt="Secure mobile account access"
               fill
-              sizes="(min-width:1024px) 50vw,100vw"
+              sizes="(min-width:1024px) 52vw,100vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-bank-900/20 to-transparent" />
           </div>
           <div>
-            <Heading
-              eyebrow="Security and customer trust"
-              title="Protection you can see. Privacy you can control."
-              copy="Secure access, active monitoring, and clear privacy controls help protect every interaction."
-            />
-            <div className="mt-7 grid gap-4 sm:grid-cols-2">
+            <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#168c8c]">
+              Quietly protected
+            </p>
+            <h2 className="mt-5 font-serif text-[42px] font-normal leading-[1.08] sm:text-[54px]">
+              Security that works in the background.
+            </h2>
+            <p className="mt-6 text-[15px] leading-8 text-slate-500">
+              Private by design, simple by experience, and supported by real
+              people whenever you need them.
+            </p>
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {security.slice(0, 4).map(([title, copy]) => (
-                <div className="flex gap-3" key={title}>
-                  <Check className="mt-0.5 shrink-0 text-gold-500" size={17} />
-                  <div>
-                    <p className="text-sm font-semibold">{title}</p>
-                    <p className="mt-1 text-xs leading-5 text-neutral-500">
-                      {copy}
-                    </p>
-                  </div>
+                <div key={title} className="border-l-2 border-[#68bbb5] pl-4">
+                  <p className="text-sm font-semibold">{title}</p>
+                  <p className="mt-2 text-xs leading-6 text-slate-500">
+                    {copy}
+                  </p>
                 </div>
               ))}
             </div>
-            <figure className="mt-8 rounded-lg bg-bank-50 p-6">
-              <Quote className="text-gold-500" size={23} />
-              <blockquote className="mt-4 text-sm leading-7 text-neutral-600">
-                {testimonials[0][0]}
-              </blockquote>
-              <figcaption className="mt-4 text-xs font-semibold text-bank-700">
+            <blockquote className="mt-9 rounded-[28px] bg-[#edf7f5] p-6 font-serif text-xl leading-8">
+              {testimonials[0][0]}
+              <footer className="mt-4 font-sans text-xs font-semibold text-[#117676]">
                 {testimonials[0][1]} · {testimonials[0][2]}
-              </figcaption>
-            </figure>
+              </footer>
+            </blockquote>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f7f9fc] px-5 py-20 text-center sm:px-8">
-        <Heading
-          center
-          eyebrow="Start today"
-          title="Secure banking, built around you."
-          copy="Open an account in minutes and take control of your financial future."
-        />
-        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-          <AuthTransitionLink href="/register" className="btn min-w-48">
-            Open an Account
-          </AuthTransitionLink>
+      <section className="px-5 pb-24 sm:px-8 lg:pb-32">
+        <div className="mx-auto flex max-w-[1180px] flex-col items-start justify-between gap-8 rounded-[38px] bg-[#c8ae72] px-7 py-12 sm:px-12 lg:flex-row lg:items-center">
+          <div>
+            <p className="text-[10px] font-bold uppercase tracking-[.2em]">
+              Your next chapter
+            </p>
+            <h2 className="mt-3 font-serif text-4xl font-normal">
+              Membership begins with one conversation.
+            </h2>
+          </div>
           <AuthTransitionLink
-            href="/login"
-            className="inline-flex min-h-12 min-w-48 items-center justify-center rounded-md border border-gold-500 px-5 text-sm font-semibold text-[#0b1f3a] hover:bg-gold-50"
+            href="/register"
+            className="inline-flex min-h-14 shrink-0 items-center gap-2 rounded-full bg-[#0b1f3a] px-7 text-sm font-semibold text-white"
           >
-            Access Your Account
+            Open your account <ArrowRight size={16} />
           </AuthTransitionLink>
         </div>
       </section>

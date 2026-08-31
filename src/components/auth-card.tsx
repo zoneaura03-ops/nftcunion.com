@@ -57,7 +57,7 @@ function Field({
           autoComplete={autoComplete}
           value={value}
           onChange={onChange}
-          className="field !pl-[58px]"
+          className="field !rounded-xl !border-[#dce8e6] !bg-[#fbfdfc] !pl-[58px]"
         />
       </span>
     </label>
@@ -88,7 +88,7 @@ function Select({
           required
           value={value}
           onChange={onChange}
-          className="field !pl-[58px]"
+          className="field !rounded-xl !border-[#dce8e6] !bg-[#fbfdfc] !pl-[58px]"
         >
           <option value="">Select an option</option>
           {children}
@@ -107,14 +107,21 @@ function Frame({
 }) {
   return (
     <div className={`mx-auto w-full ${wide ? "max-w-xl" : "max-w-md"}`}>
-      <div className="rounded-lg border border-white/70 bg-white p-7 shadow-[0_24px_70px_rgba(0,20,12,.3)] sm:p-9">
+      <div className="rounded-[28px] border border-[#dce8e6] bg-white p-7 shadow-[0_24px_70px_rgba(11,31,58,.10)] sm:p-9">
         <div className="mb-7 flex justify-center border-b border-[#e2e7f0] pb-6">
           <AuthTransitionLink
             href="/"
             className="inline-flex items-center gap-2 text-bank-700"
           >
             <BrandMark />
-            <span className="text-xs font-bold tracking-[.22em]">NORTH FOUNTAIN TRUST CREDIT UNION</span>
+            <span className="text-left uppercase leading-tight">
+              <span className="block text-[11px] font-medium tracking-[.17em]">
+                North Fountain
+              </span>
+              <span className="mt-1 block text-[8px] font-medium tracking-[.22em] text-[#2a8f8a]">
+                Trust Credit Union
+              </span>
+            </span>
           </AuthTransitionLink>
         </div>
         {children}
@@ -202,10 +209,19 @@ function Login({ notice }: { notice?: string }) {
         </p>
         <h1 className="mt-2 text-3xl">Welcome back</h1>
         <p className="mt-2 text-sm leading-6 text-neutral-500">
-          Enter your details to access your North Fountain Trust Credit Union account.
+          Enter your details to access your North Fountain Trust Credit Union
+          account.
         </p>
         <form onSubmit={submit} className="mt-7 space-y-5">
-          <label className="absolute -left-[10000px]" aria-hidden><span>Website</span><input tabIndex={-1} autoComplete="off" value={website} onChange={event=>setWebsite(event.target.value)} /></label>
+          <label className="absolute -left-[10000px]" aria-hidden>
+            <span>Website</span>
+            <input
+              tabIndex={-1}
+              autoComplete="off"
+              value={website}
+              onChange={(event) => setWebsite(event.target.value)}
+            />
+          </label>
           <Field
             label="Email address"
             icon={<Mail size={16} />}
@@ -527,21 +543,42 @@ function Registration() {
                   </button>
                 </span>
               </label>
-              <div aria-live="polite" className="rounded-md border border-[#e2e7f0] bg-neutral-50 p-4">
+              <div
+                aria-live="polite"
+                className="rounded-md border border-[#e2e7f0] bg-neutral-50 p-4"
+              >
                 <div className="flex items-center justify-between text-xs font-semibold">
                   <span>Password strength</span>
-                  <span className={passwordStrong ? "text-[#0b1f3a]" : passwordScore >= 3 ? "text-amber-700" : "text-red-700"}>
-                    {passwordStrong ? "Strong" : passwordScore >= 3 ? "Medium" : "Weak"}
+                  <span
+                    className={
+                      passwordStrong
+                        ? "text-[#0b1f3a]"
+                        : passwordScore >= 3
+                          ? "text-amber-700"
+                          : "text-red-700"
+                    }
+                  >
+                    {passwordStrong
+                      ? "Strong"
+                      : passwordScore >= 3
+                        ? "Medium"
+                        : "Weak"}
                   </span>
                 </div>
                 <div className="mt-3 grid grid-cols-5 gap-1" aria-hidden="true">
                   {checks.map((_, index) => (
-                    <span key={index} className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-gold-500" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`} />
+                    <span
+                      key={index}
+                      className={`h-1.5 rounded-full ${index < passwordScore ? (passwordStrong ? "bg-gold-500" : passwordScore >= 3 ? "bg-amber-500" : "bg-red-500") : "bg-neutral-200"}`}
+                    />
                   ))}
                 </div>
                 <ul className="mt-3 grid gap-1 text-[11px] text-neutral-500 sm:grid-cols-2">
                   {checks.map((check) => (
-                    <li key={check.label} className={check.met ? "text-[#0b1f3a]" : undefined}>
+                    <li
+                      key={check.label}
+                      className={check.met ? "text-[#0b1f3a]" : undefined}
+                    >
                       {check.met ? "?" : "?"} {check.label}
                     </li>
                   ))}

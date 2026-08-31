@@ -129,3 +129,15 @@ button[aria-label="Refresh dashboard"]:disabled::before {
     display: none !important;
   }
 }
+
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-120%);
+  }
+  50% {
+    transform: translateX(160%);
+  }
+  100% {
+    transform: translateX(360%);
+  }
+}

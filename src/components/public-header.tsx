@@ -58,7 +58,7 @@ export function PublicHeader() {
         <div
           className={`mx-auto flex max-w-[1220px] items-center justify-between px-5 transition-[height] duration-300 sm:px-8 ${scrolled ? "h-[68px]" : "h-[78px]"}`}
         >
-          <div className="origin-left scale-[1.08]">
+          <div className="origin-left">
             <Logo />
           </div>
 
@@ -90,7 +90,10 @@ export function PublicHeader() {
               href="/login"
               className="rounded px-3 py-3 text-[13px] font-medium text-neutral-600 hover:bg-gold-50 hover:text-[#0b1f3a]"
             >
-              <LockKeyhole className="mr-1.5 inline-block text-gold-600" size={13} />
+              <LockKeyhole
+                className="mr-1.5 inline-block text-gold-600"
+                size={13}
+              />
               Sign In
             </AuthTransitionLink>
             <AuthTransitionLink

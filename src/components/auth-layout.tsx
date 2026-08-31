@@ -1,6 +1,7 @@
 import Image from "next/image";
-import { Fingerprint, LockKeyhole } from "lucide-react";
+import { Fingerprint, LockKeyhole, Sparkles } from "lucide-react";
 import { BrowserBackButton } from "./browser-back-button";
+import Logo from "./logo";
 
 export function AuthLayout({
   children,
@@ -10,44 +11,52 @@ export function AuthLayout({
   register?: boolean;
 }) {
   return (
-    <main className="relative isolate min-h-screen overflow-x-hidden bg-[#0b1f3a]">
-      <Image
-        src="/images/nftcunion-auth-towers-v2.webp"
-        alt="Modern financial district skyscrapers"
-        fill
-        priority
-        sizes="100vw"
-        className="absolute inset-0 -z-40 object-cover object-center"
-      />
-
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(115deg,rgba(7,17,32,.92),rgba(10,23,40,.78))]" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-[#06111f]/70 to-transparent" />
-
-      <div className="relative mx-auto min-h-screen w-full max-w-[1380px] px-4 sm:px-8 lg:px-12">
-        {register && (
-          <BrowserBackButton className="absolute left-4 top-4 z-20 sm:hidden" />
-        )}
-        <div className="absolute inset-x-4 top-6 flex items-center justify-center gap-5 text-center text-white/70 sm:inset-x-8 sm:justify-between sm:text-left lg:inset-x-12">
-          <div className="hidden items-center gap-2 text-[11px] font-semibold uppercase tracking-[.16em] sm:flex">
-            <Fingerprint size={17} className="text-gold-300" />
-            Bank-grade protection
+    <main className="min-h-screen bg-[#edf6f4] p-3 sm:p-5 lg:p-7">
+      <div className="mx-auto grid min-h-[calc(100vh-24px)] max-w-[1480px] overflow-hidden rounded-[32px] bg-white shadow-[0_30px_90px_rgba(11,31,58,.12)] sm:min-h-[calc(100vh-40px)] lg:min-h-[calc(100vh-56px)] lg:grid-cols-[.92fr_1.08fr]">
+        <aside className="relative hidden overflow-hidden lg:block">
+          <Image
+            src="/images/nftcunion-auth-towers-v2.webp"
+            alt="North Fountain member center"
+            fill
+            priority
+            sizes="46vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f3a]/85 via-[#0b1f3a]/15 to-transparent" />
+          <div className="absolute left-10 top-9 rounded-2xl bg-white/95 px-4 py-3 backdrop-blur">
+            <Logo />
           </div>
-          <div className="flex items-center gap-2 text-[11px] text-white/60">
-            <LockKeyhole size={14} className="text-gold-300" />
-            256-bit encrypted session
+          <div className="absolute inset-x-10 bottom-10 text-white">
+            <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-[#89d0ca]">
+              <Sparkles size={14} />
+              Member-owned banking
+            </div>
+            <h1 className="mt-5 max-w-lg font-serif text-5xl font-normal leading-[1.06]">
+              Your finances deserve a calmer place.
+            </h1>
+            <p className="mt-5 max-w-md text-sm leading-7 text-white/65">
+              Private access, thoughtful guidance, and tools designed around
+              your next chapter.
+            </p>
           </div>
-        </div>
-
-        <section className="flex min-h-screen items-center justify-center py-20 sm:py-24">
+        </aside>
+        <section className="relative flex min-h-screen items-center justify-center px-4 py-20 sm:min-h-0 sm:px-8 lg:px-14">
+          {register && (
+            <BrowserBackButton className="absolute left-4 top-4 z-20 sm:hidden" />
+          )}
+          <div className="absolute inset-x-5 top-5 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[.14em] text-slate-400 sm:inset-x-8">
+            <span className="flex items-center gap-2">
+              <Fingerprint size={15} className="text-[#168c8c]" />
+              Protected access
+            </span>
+            <span className="flex items-center gap-2">
+              <LockKeyhole size={13} className="text-[#168c8c]" />
+              Encrypted
+            </span>
+          </div>
           <div className="w-full">{children}</div>
         </section>
-
-        <p className="absolute inset-x-4 bottom-6 text-center text-[11px] text-white/45">
-          North Fountain Trust Credit Union &middot; Secure digital banking &middot; Privacy protected
-        </p>
       </div>
     </main>
   );
 }
-
-// Hostinger source snapshot sync.
