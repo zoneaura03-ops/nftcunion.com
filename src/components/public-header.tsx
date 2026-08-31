@@ -76,7 +76,7 @@ export function PublicHeader() {
               >
                 {link.label}
                 <span
-                  className={`absolute inset-x-3.5 bottom-1 h-[2px] origin-left bg-gold-400 transition-transform duration-200 ${
+                  className={`absolute inset-x-3.5 bottom-1 h-[2px] origin-left bg-[#d8b45b] transition-transform duration-200 ${
                     pathname === link.href ||
                     (link.href === "/features" && pathname === "/features")
                       ? "scale-x-100"
@@ -98,7 +98,7 @@ export function PublicHeader() {
             </AuthTransitionLink>
             <AuthTransitionLink
               href="/register"
-              className="ml-1 rounded-[5px] bg-gold-400 px-5 py-3 text-[13px] font-semibold text-[#0b1f3a] shadow-[0_7px_18px_rgba(214,180,95,.24)] hover:-translate-y-0.5 hover:bg-gold-300 hover:shadow-[0_10px_24px_rgba(214,180,95,.3)]"
+              className="ml-1 rounded-[5px] bg-[#d8b45b] px-5 py-3 text-[13px] font-semibold text-[#0b1f3a] shadow-[0_7px_18px_rgba(214,180,95,.24)] hover:-translate-y-0.5 hover:bg-[#e7cc88] hover:shadow-[0_10px_24px_rgba(214,180,95,.3)]"
             >
               Open Account
             </AuthTransitionLink>
@@ -173,7 +173,7 @@ export function PublicHeader() {
             <AuthTransitionLink
               onNavigate={() => setOpen(false)}
               href="/register"
-              className="btn w-full"
+              className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-[#d8b45b] px-5 py-3 text-sm font-semibold text-[#07182c] hover:bg-[#e7cc88]"
             >
               <UserPlus size={16} className="text-[#0b1f3a]" />
               Open Account
