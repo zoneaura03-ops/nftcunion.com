@@ -83,7 +83,7 @@ export const publicContent = {
       "International Banking",
       "Contact Us",
     ],
-    address: "301 East Water Street, Charlottesville, VA 22901 Virginia",
+    address: "100 North Fountain Plaza, Minneapolis, MN 55401, United States",
     email: "support@nftcunion.com",
   },
   proof: [

@@ -49,7 +49,7 @@ export function PublicHeader() {
   return (
     <>
       <header
-        className={`sticky top-0 z-40 border-b transition-all duration-300 ${
+        className={`fixed inset-x-0 top-0 z-40 border-b transition-all duration-300 ${
           scrolled
             ? "border-black/[0.06] bg-white/90 shadow-[0_8px_30px_rgba(10,23,40,.08)] backdrop-blur-xl"
             : "border-black/[0.045] bg-white"
@@ -115,6 +115,7 @@ export function PublicHeader() {
           </button>
         </div>
       </header>
+      <div className="h-[78px]" aria-hidden="true" />
 
       <div
         className={`fixed inset-0 z-50 transition-visibility lg:hidden ${open ? "visible" : "invisible delay-300"}`}

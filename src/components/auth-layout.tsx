@@ -15,10 +15,19 @@ export function AuthLayout({
       <div className="mx-auto grid min-h-[calc(100vh-24px)] max-w-[1480px] overflow-hidden rounded-[32px] bg-white shadow-[0_30px_90px_rgba(11,31,58,.12)] sm:min-h-[calc(100vh-40px)] lg:min-h-[calc(100vh-56px)] lg:grid-cols-[.92fr_1.08fr]">
         <aside className="relative hidden overflow-hidden lg:block">
           <Image
-            src="/images/nftcunion-auth-towers-v2.webp"
-            alt="North Fountain member center"
+            src={
+              register
+                ? "/images/nftcunion-auth-towers-v2.webp"
+                : "/images/nftcunion-login-lounge-v2.webp"
+            }
+            alt={
+              register
+                ? "North Fountain member center"
+                : "North Fountain private member lounge"
+            }
             fill
             priority
+            quality={90}
             sizes="46vw"
             className="object-cover"
           />

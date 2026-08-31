@@ -1740,7 +1740,7 @@ function GrantApplications() {
         <h2 className="mt-2 text-2xl font-bold">Your submissions and drafts</h2>
         <div className="mt-4 overflow-hidden rounded-2xl border border-[#e1e6ef] bg-white">
           {applications === null ? <RowsLoading /> : applications.length ? applications.map((application) => {
-            const tone = application.status === "approved" ? "bg-gold-50 text-[#0b1f3a]" : application.status === "declined" ? "bg-red-50 text-red-700" : application.status === "under_review" ? "bg-gold-50 text-[#0b1f3a]" : application.status === "draft" ? "bg-neutral-100 text-neutral-700" : "bg-amber-50 text-amber-700";
+            const tone = application.status === "approved" ? "bg-emerald-50 text-emerald-700" : application.status === "declined" ? "bg-red-50 text-red-700" : application.status === "under_review" ? "bg-gold-50 text-[#0b1f3a]" : application.status === "draft" ? "bg-neutral-100 text-neutral-700" : "bg-amber-50 text-amber-700";
             return (
               <article key={application.id} className="border-b p-5 last:border-0">
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -1758,7 +1758,7 @@ function GrantApplications() {
                 </div>
                 {application.documents?.length > 0 && <p className="mt-3 text-xs text-neutral-500">{application.documents.length} supporting {application.documents.length === 1 ? "document" : "documents"}</p>}
                 {application.admin_feedback && (
-                  <div className={`mt-4 rounded-xl p-4 text-sm ${application.status === "declined" ? "bg-red-50 text-red-800" : "bg-bank-50 text-bank-800"}`}>
+                  <div className={`mt-4 rounded-xl p-4 text-sm ${application.status === "declined" ? "bg-red-50 text-red-800" : application.status === "approved" ? "bg-emerald-50 text-emerald-800" : "bg-bank-50 text-bank-800"}`}>
                     <b className="block">Administrator feedback</b>
                     <p className="mt-1 leading-6">{application.admin_feedback}</p>
                   </div>

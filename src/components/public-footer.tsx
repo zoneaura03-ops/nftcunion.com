@@ -21,10 +21,10 @@ export function PublicFooter() {
   return (
     <footer
       id="contact"
-      className="border-t border-[#dce8e6] bg-[#f1f7f6] px-5 pb-8 pt-14 text-[#0b1f3a] sm:px-8 lg:pt-20"
+      className="bg-[#0b1f3a] px-5 pb-8 pt-12 text-[#0b1f3a] sm:px-8 lg:pt-16"
     >
       <div className="mx-auto max-w-[1180px]">
-        <div className="grid gap-12 rounded-[34px] bg-white p-7 shadow-[0_22px_70px_rgba(11,31,58,.06)] sm:p-10 lg:grid-cols-[1.35fr_.75fr_.85fr_1.15fr]">
+        <div className="grid gap-12 rounded-[34px] border border-white/10 bg-white p-7 shadow-[0_24px_70px_rgba(0,0,0,.18)] sm:p-10 lg:grid-cols-[1.35fr_.75fr_.85fr_1.15fr]">
           <div>
             <Logo />
             <p className="mt-6 max-w-sm text-sm leading-7 text-slate-500">
@@ -64,13 +64,13 @@ export function PublicFooter() {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-4 px-2 pt-8 text-[11px] text-slate-500 sm:flex-row sm:items-center">
+        <div className="flex flex-col justify-between gap-4 px-2 pt-8 text-[11px] text-white/55 sm:flex-row sm:items-center">
           <span>
             © 2026 North Fountain Trust Credit Union. All rights reserved.
           </span>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {["Privacy", "Terms", "Security", "Accessibility"].map((item) => (
-              <Link key={item} href="/legal" className="hover:text-[#117676]">
+              <Link key={item} href="/legal" className="hover:text-[#d8b45b]">
                 {item}
               </Link>
             ))}

@@ -291,7 +291,7 @@ function Login({ notice }: { notice?: string }) {
             <ArrowRight size={16} />
           </button>
         </form>
-        <p className="mt-6 flex items-center justify-center gap-1 text-center text-xs text-neutral-500">
+        <div className="mt-6 flex items-center justify-center gap-1 text-center text-xs text-neutral-500">
           <span>New to North Fountain Trust Credit Union?</span>
           <AuthTransitionLink
             href="/register"
@@ -299,7 +299,7 @@ function Login({ notice }: { notice?: string }) {
           >
             Open an account
           </AuthTransitionLink>
-        </p>
+        </div>
       </Frame>
       {loading && (
         <div className="fixed inset-0 z-[100] bg-[#0b1f3a]/20 backdrop-blur-[1px]">
@@ -661,7 +661,7 @@ function Registration() {
             </button>
           </div>
         </form>
-        <p className="mt-6 flex items-center justify-center gap-1 text-center text-xs text-neutral-500">
+        <div className="mt-6 flex items-center justify-center gap-1 text-center text-xs text-neutral-500">
           <span>Already enrolled?</span>
           <AuthTransitionLink
             href="/login"
@@ -669,7 +669,7 @@ function Registration() {
           >
             Sign in
           </AuthTransitionLink>
-        </p>
+        </div>
       </Frame>
       {transitioning && (
         <div className="fixed inset-0 z-[100] bg-[#0b1f3a]/20 backdrop-blur-[1px]">

@@ -35,7 +35,7 @@ export default function Home() {
     >
       <PublicHeader />
 
-      <section className="relative px-5 pb-20 pt-10 sm:px-8 lg:pb-28 lg:pt-14">
+      <section className="relative px-5 pb-14 pt-5 sm:px-8 lg:pb-20 lg:pt-7">
         <div className="absolute -left-40 top-16 h-80 w-80 rounded-full bg-[#dbeeed]/70 blur-3xl" />
         <div className="relative mx-auto grid max-w-[1220px] gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <div className="max-w-xl py-8 lg:py-14">
@@ -83,6 +83,7 @@ export default function Home() {
                 alt="A North Fountain financial guide meeting a member"
                 fill
                 priority
+                quality={90}
                 sizes="(min-width:1024px) 56vw,100vw"
                 className="object-cover object-center"
               />
@@ -103,7 +104,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 py-10 sm:px-8">
+      <section className="px-5 py-6 sm:px-8">
         <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-3 rounded-[28px] border border-[#dce8e6] bg-white p-3 shadow-[0_16px_55px_rgba(11,31,58,.05)] sm:grid-cols-3 lg:grid-cols-5">
           {proof.map(([mark, copy], index) => (
             <div
@@ -119,7 +120,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="features" className="px-5 py-24 sm:px-8 lg:py-32">
+      <section id="features" className="px-5 py-16 sm:px-8 lg:py-20">
         <div className="mx-auto max-w-[1180px]">
           <div className="grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:items-end">
             <div>
@@ -141,6 +142,7 @@ export default function Home() {
                 src="/images/nftcunion-business-services-v2.webp"
                 alt="A member reviewing plans with a financial guide"
                 fill
+                quality={90}
                 sizes="(min-width:1024px) 45vw,100vw"
                 className="object-cover"
               />
@@ -216,13 +218,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 py-24 sm:px-8 lg:py-32">
+      <section className="px-5 py-16 sm:px-8 lg:py-20">
         <div className="mx-auto grid max-w-[1180px] gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
           <div className="relative min-h-[560px] overflow-hidden rounded-[12%_36px_12%_36px]">
             <Image
               src="/images/nftcunion-security-trust-v2.webp"
               alt="Secure mobile account access"
               fill
+              quality={90}
               sizes="(min-width:1024px) 52vw,100vw"
               className="object-cover"
             />
@@ -258,7 +261,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-5 pb-24 sm:px-8 lg:pb-32">
+      <section className="px-5 pb-16 sm:px-8 lg:pb-20">
         <div className="mx-auto flex max-w-[1180px] flex-col items-start justify-between gap-8 rounded-[38px] bg-[#c8ae72] px-7 py-12 sm:px-12 lg:flex-row lg:items-center">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-[.2em]">
