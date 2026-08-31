@@ -21,50 +21,66 @@ export function PublicFooter() {
   return (
     <footer
       id="contact"
-      className="bg-[#0b1f3a] px-5 pb-8 pt-12 text-[#0b1f3a] sm:px-8 lg:pt-16"
+      className="relative overflow-hidden bg-[#07182c] px-5 pb-8 pt-16 text-white sm:px-8 lg:pt-24"
     >
-      <div className="mx-auto max-w-[1180px]">
-        <div className="grid gap-12 rounded-[34px] border border-white/10 bg-white p-7 shadow-[0_24px_70px_rgba(0,0,0,.18)] sm:p-10 lg:grid-cols-[1.35fr_.75fr_.85fr_1.15fr]">
+      <div className="absolute -right-40 -top-40 size-[520px] rounded-full border border-[#d8b45b]/10" />
+      <div className="absolute -right-24 -top-24 size-[360px] rounded-full border border-[#d8b45b]/10" />
+      <div className="relative mx-auto max-w-[1180px]">
+        <div className="grid gap-10 border-b border-white/12 pb-14 lg:grid-cols-[1.2fr_.8fr] lg:items-end">
           <div>
-            <Logo />
-            <p className="mt-6 max-w-sm text-sm leading-7 text-slate-500">
+            <p className="text-[10px] font-bold uppercase tracking-[.22em] text-[#d8b45b]">
+              A better banking relationship
+            </p>
+            <h2 className="mt-5 max-w-2xl font-serif text-4xl font-normal leading-tight sm:text-5xl">
+              Your goals deserve more than an account number.
+            </h2>
+          </div>
+          <a
+            href={`mailto:${footer.email}`}
+            className="inline-flex min-h-14 w-fit items-center gap-3 rounded-full bg-[#d8b45b] px-7 text-sm font-semibold text-[#07182c] hover:bg-[#e4c979] lg:justify-self-end"
+          >
+            Speak with member care <ArrowUpRight size={16} />
+          </a>
+        </div>
+
+        <div className="grid gap-12 py-14 lg:grid-cols-[1.35fr_.7fr_.8fr_1.1fr]">
+          <div>
+            <div className="inline-flex rounded-2xl bg-white px-4 py-3">
+              <Logo />
+            </div>
+            <p className="mt-6 max-w-sm text-sm leading-7 text-white/52">
               {footer.description}
             </p>
-            <a
-              href="mailto:support@nftcunion.com"
-              className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#e3f2f0] px-5 py-3 text-xs font-semibold text-[#117676]"
-            >
-              Talk to member care <ArrowUpRight size={14} />
-            </a>
           </div>
           <FooterLinks title="Explore" links={companyLinks} />
           <FooterLinks title="Banking" links={serviceLinks} />
           <div>
-            <h3 className="text-[11px] font-bold uppercase tracking-[.18em] text-[#168c8c]">
+            <h3 className="text-[10px] font-bold uppercase tracking-[.2em] text-[#d8b45b]">
               Member care
             </h3>
-            <ul className="mt-6 space-y-5 text-sm leading-6 text-slate-500">
+            <ul className="mt-6 space-y-5 text-sm leading-6 text-white/58">
               <li className="flex gap-3">
-                <MapPin className="mt-1 shrink-0 text-[#c8ae72]" size={17} />
+                <MapPin className="mt-1 shrink-0 text-[#78c8c0]" size={17} />
                 <span>{footer.address}</span>
               </li>
               <li>
                 <a
-                  className="flex items-center gap-3 hover:text-[#117676]"
+                  className="flex items-center gap-3 hover:text-white"
                   href={`mailto:${footer.email}`}
                 >
-                  <Mail className="shrink-0 text-[#c8ae72]" size={17} />
+                  <Mail className="shrink-0 text-[#78c8c0]" size={17} />
                   {footer.email}
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Clock3 className="shrink-0 text-[#c8ae72]" size={17} />
+                <Clock3 className="shrink-0 text-[#78c8c0]" size={17} />
                 Digital support, around the clock
               </li>
             </ul>
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-4 px-2 pt-8 text-[11px] text-white/55 sm:flex-row sm:items-center">
+
+        <div className="flex flex-col justify-between gap-4 border-t border-white/12 pt-7 text-[11px] text-white/42 sm:flex-row sm:items-center">
           <span>
             © 2026 North Fountain Trust Credit Union. All rights reserved.
           </span>
@@ -90,16 +106,13 @@ function FooterLinks({
 }) {
   return (
     <div>
-      <h3 className="text-[11px] font-bold uppercase tracking-[.18em] text-[#168c8c]">
+      <h3 className="text-[10px] font-bold uppercase tracking-[.2em] text-[#d8b45b]">
         {title}
       </h3>
-      <ul className="mt-6 space-y-4 text-sm text-slate-500">
+      <ul className="mt-6 space-y-4 text-sm text-white/55">
         {links.map(([label, href]) => (
           <li key={label}>
-            <Link
-              href={href}
-              className="inline-flex items-center gap-1 hover:text-[#117676]"
-            >
+            <Link href={href} className="hover:text-white">
               {label}
             </Link>
           </li>

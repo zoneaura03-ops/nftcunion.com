@@ -35,72 +35,61 @@ export default function Home() {
     >
       <PublicHeader />
 
-      <section className="relative px-5 pb-14 pt-5 sm:px-8 lg:pb-20 lg:pt-7">
-        <div className="absolute -left-40 top-16 h-80 w-80 rounded-full bg-[#dbeeed]/70 blur-3xl" />
-        <div className="relative mx-auto grid max-w-[1220px] gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-          <div className="max-w-xl py-8 lg:py-14">
-            <p className="inline-flex items-center gap-2 rounded-full border border-[#168c8c]/20 bg-white px-4 py-2 text-[10px] font-semibold uppercase tracking-[.16em] text-[#117676] shadow-sm">
-              <span className="size-1.5 rounded-full bg-[#c8ae72]" />{" "}
+      <section className="relative isolate min-h-[680px] overflow-hidden bg-[#07182c] sm:min-h-[720px] lg:min-h-[760px]">
+        <Image
+          src="/images/nftcunion-hero-editorial-v3.webp"
+          alt="A North Fountain member meeting with a financial adviser"
+          fill
+          priority
+          quality={95}
+          sizes="100vw"
+          className="object-cover object-[64%_center]"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,34,.98)_0%,rgba(5,18,34,.9)_32%,rgba(5,18,34,.44)_58%,rgba(5,18,34,.08)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#07182c]/75 to-transparent" />
+        <div className="relative mx-auto flex min-h-[680px] max-w-[1220px] items-center px-5 py-16 sm:min-h-[720px] sm:px-8 lg:min-h-[760px]">
+          <div className="max-w-[650px] text-white">
+            <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[.24em] text-[#d8b45b]">
+              <span className="h-px w-10 bg-[#d8b45b]" />
               {hero.eyebrow}
             </p>
-            <h1 className="mt-8 font-serif text-[48px] font-normal leading-[1.02] tracking-[-.045em] sm:text-[66px] lg:text-[76px]">
-              A clearer path to{" "}
-              <span className="italic text-[#168c8c]">
-                financial wellbeing.
-              </span>
+            <h1 className="mt-7 max-w-[620px] font-serif text-[50px] font-normal leading-[.98] tracking-[-.045em] sm:text-[68px] lg:text-[82px]">
+              Banking built around your next chapter.
             </h1>
-            <p className="mt-7 max-w-lg text-[16px] leading-8 text-slate-600">
+            <p className="mt-7 max-w-[540px] text-[16px] leading-8 text-white/68">
               {hero.description}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <AuthTransitionLink
                 href="/register"
-                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#0b1f3a] px-7 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(11,31,58,.18)] hover:-translate-y-0.5 hover:bg-[#123252]"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#d8b45b] px-7 text-sm font-semibold text-[#07182c] shadow-[0_16px_40px_rgba(216,180,91,.2)] hover:-translate-y-0.5 hover:bg-[#e4c979]"
               >
                 Become a member <ArrowRight size={16} />
               </AuthTransitionLink>
               <AuthTransitionLink
                 href="/login"
-                className="inline-flex min-h-14 items-center justify-center rounded-full border border-[#0b1f3a]/15 bg-white px-7 text-sm font-semibold hover:border-[#168c8c]/40 hover:bg-[#f2f9f8]"
+                className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/30 bg-white/10 px-7 text-sm font-semibold text-white backdrop-blur-md hover:bg-white/16"
               >
                 {hero.secondaryAction}
               </AuthTransitionLink>
             </div>
-            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-xs text-slate-500">
+            <div className="mt-11 flex flex-wrap gap-x-7 gap-y-3 border-t border-white/15 pt-6 text-xs text-white/62">
               {hero.assurances.map((item) => (
                 <span key={item} className="flex items-center gap-2">
-                  <Check size={14} className="text-[#168c8c]" />
+                  <Check size={14} className="text-[#78c8c0]" />
                   {item}
                 </span>
               ))}
             </div>
           </div>
-
-          <div className="relative min-h-[520px] lg:min-h-[650px]">
-            <div className="absolute inset-0 overflow-hidden rounded-[38%_8%_32%_8%] bg-[#0b1f3a] shadow-[0_35px_90px_rgba(11,31,58,.18)]">
-              <Image
-                src="/images/nftcunion-corporate-hero-v2.webp"
-                alt="A North Fountain financial guide meeting a member"
-                fill
-                priority
-                quality={90}
-                sizes="(min-width:1024px) 56vw,100vw"
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f3a]/35 via-transparent to-transparent" />
-            </div>
-            <div className="absolute -bottom-6 left-4 max-w-[270px] rounded-3xl border border-white/70 bg-white/95 p-5 shadow-[0_18px_50px_rgba(11,31,58,.16)] backdrop-blur sm:left-8">
-              <p className="text-[10px] font-bold uppercase tracking-[.18em] text-[#168c8c]">
-                Member first
-              </p>
-              <p className="mt-2 font-serif text-xl leading-7">
-                Guidance shaped around your life, not a product quota.
-              </p>
-            </div>
-            <div className="absolute right-3 top-8 rounded-full border border-white/40 bg-[#0b1f3a]/80 px-5 py-3 text-xs text-white backdrop-blur sm:right-6">
-              Federally insured savings
-            </div>
-          </div>
+        </div>
+        <div className="absolute bottom-8 right-8 hidden max-w-[260px] rounded-2xl border border-white/15 bg-[#07182c]/72 p-5 text-white backdrop-blur-xl lg:block">
+          <p className="text-[9px] font-bold uppercase tracking-[.2em] text-[#d8b45b]">
+            The North Fountain standard
+          </p>
+          <p className="mt-2 font-serif text-xl leading-7">
+            Personal guidance. Cooperative values. Modern access.
+          </p>
         </div>
       </section>
 
@@ -109,7 +98,7 @@ export default function Home() {
           {proof.map(([mark, copy], index) => (
             <div
               key={mark}
-              className={`${index === 4 ? "col-span-2 sm:col-span-1" : ""} rounded-2xl px-4 py-6 text-center hover:bg-[#f2f8f7]`}
+              className={`${index === 4 ? "col-span-2 sm:col-span-1" : ""} rounded-2xl px-4 py-6 text-center hover:bg-[#fbf7ed]`}
             >
               <b className="text-sm tracking-[.12em]">{mark}</b>
               <span className="mt-2 block text-[9px] uppercase tracking-[.12em] text-slate-400">
@@ -124,7 +113,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1180px]">
           <div className="grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:items-end">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#168c8c]">
+              <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#b58e35]">
                 Made for members
               </p>
               <h2 className="mt-5 font-serif text-[42px] font-normal leading-[1.08] sm:text-[56px]">
@@ -136,13 +125,13 @@ export default function Home() {
               future, one cooperative relationship keeps everything clear.
             </p>
           </div>
-          <div className="mt-14 grid overflow-hidden rounded-[34px] bg-[#eaf4f3] lg:grid-cols-[.9fr_1.1fr]">
+          <div className="mt-14 grid overflow-hidden rounded-[34px] bg-[#f4efe4] lg:grid-cols-[.9fr_1.1fr]">
             <div className="relative min-h-[440px]">
               <Image
-                src="/images/nftcunion-business-services-v2.webp"
+                src="/images/nftcunion-members-editorial-v3.webp"
                 alt="A member reviewing plans with a financial guide"
                 fill
-                quality={90}
+                quality={95}
                 sizes="(min-width:1024px) 45vw,100vw"
                 className="object-cover"
               />
@@ -155,11 +144,11 @@ export default function Home() {
                     key={title}
                     className="group rounded-3xl p-6 transition hover:bg-white hover:shadow-[0_14px_40px_rgba(11,31,58,.08)]"
                   >
-                    <span className="grid size-11 place-items-center rounded-2xl bg-[#dff0ee] text-[#117676]">
+                    <span className="grid size-11 place-items-center rounded-2xl bg-[#f5ecd7] text-[#9b7529]">
                       <Icon size={20} />
                     </span>
                     <h3 className="mt-6 font-serif text-2xl">{title}</h3>
-                    <p className="mt-2 text-xs font-semibold text-[#168c8c]">
+                    <p className="mt-2 text-xs font-semibold text-[#b58e35]">
                       {benefit}
                     </p>
                     <p className="mt-3 text-xs leading-6 text-slate-500">
@@ -183,7 +172,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1180px]">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#74c5bf]">
+              <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#d8b45b]">
                 Your financial pathway
               </p>
               <h2 className="mt-5 max-w-2xl font-serif text-[42px] font-normal leading-[1.08] sm:text-[56px]">
@@ -206,7 +195,7 @@ export default function Home() {
                   <span className="absolute right-5 top-2 font-serif text-7xl text-white/[.04]">
                     0{index + 1}
                   </span>
-                  <span className="grid size-12 place-items-center rounded-full bg-[#168c8c] text-white">
+                  <span className="grid size-12 place-items-center rounded-full bg-[#d8b45b] text-[#07182c]">
                     <Icon size={20} />
                   </span>
                   <h3 className="mt-8 font-serif text-2xl">{title}</h3>
@@ -222,16 +211,16 @@ export default function Home() {
         <div className="mx-auto grid max-w-[1180px] gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
           <div className="relative min-h-[560px] overflow-hidden rounded-[12%_36px_12%_36px]">
             <Image
-              src="/images/nftcunion-security-trust-v2.webp"
+              src="/images/nftcunion-security-editorial-v3.webp"
               alt="Secure mobile account access"
               fill
-              quality={90}
+              quality={95}
               sizes="(min-width:1024px) 52vw,100vw"
               className="object-cover"
             />
           </div>
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#168c8c]">
+            <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#b58e35]">
               Quietly protected
             </p>
             <h2 className="mt-5 font-serif text-[42px] font-normal leading-[1.08] sm:text-[54px]">
@@ -243,7 +232,7 @@ export default function Home() {
             </p>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {security.slice(0, 4).map(([title, copy]) => (
-                <div key={title} className="border-l-2 border-[#68bbb5] pl-4">
+                <div key={title} className="border-l-2 border-[#d8b45b] pl-4">
                   <p className="text-sm font-semibold">{title}</p>
                   <p className="mt-2 text-xs leading-6 text-slate-500">
                     {copy}
@@ -251,9 +240,9 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <blockquote className="mt-9 rounded-[28px] bg-[#edf7f5] p-6 font-serif text-xl leading-8">
+            <blockquote className="mt-9 rounded-[28px] bg-[#f7f2e8] p-6 font-serif text-xl leading-8">
               {testimonials[0][0]}
-              <footer className="mt-4 font-sans text-xs font-semibold text-[#117676]">
+              <footer className="mt-4 font-sans text-xs font-semibold text-[#9b7529]">
                 {testimonials[0][1]} · {testimonials[0][2]}
               </footer>
             </blockquote>

@@ -87,7 +87,7 @@ export const publicContent = {
     email: "support@nftcunion.com",
   },
   proof: [
-    ["1M+", "Customers worldwide"],
+    ["4.5M+", "Customers worldwide"],
     ["NORTHSTAR NETWORK", "Global payments partner"],
     ["FOUNTAIN CAPITAL", "Institutional partner"],
     ["256-BIT", "Encrypted banking"],
