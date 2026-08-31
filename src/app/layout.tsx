@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     description: "Secure digital banking for individuals and businesses.",
     images: ["/images/nftcunion-corporate-hero-v2.webp"],
   },
-  icons: { icon: "/icon.svg", apple: "/icon.svg" },
+  icons: { icon: "/icon.svg?v=2", apple: "/icon.svg?v=2" },
 };
 export const viewport: Viewport = {
   width: "device-width",
