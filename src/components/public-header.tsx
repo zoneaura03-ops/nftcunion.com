@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   Building2,
   CircleHelp,
-  Home,
   Info,
   Layers3,
   LockKeyhole,
@@ -19,7 +18,6 @@ import Logo from "./logo";
 import { AuthTransitionLink } from "./auth-transition-link";
 
 const links = [
-  { label: "Home", href: "/", icon: Home },
   { label: "About Us", href: "/about", icon: Info },
   { label: "Services", href: "/features", icon: Layers3 },
   { label: "Corporate Banking", href: "/corporate-banking", icon: Building2 },
@@ -63,8 +61,8 @@ export function PublicHeader() {
             <Logo inverse />
           </div>
 
-          <nav className="hidden items-center gap-1 lg:flex">
-            {links.slice(0, 4).map((link) => (
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-2 lg:flex">
+            {links.slice(0, 3).map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
@@ -86,7 +84,8 @@ export function PublicHeader() {
                 />
               </Link>
             ))}
-            <span className="mx-2 h-5 w-px bg-white/15" />
+          </nav>
+          <div className="hidden items-center gap-1 lg:flex">
             <AuthTransitionLink
               href="/login"
               className="rounded px-3 py-3 text-[13px] font-medium text-white/70 hover:bg-white/10 hover:text-white"
@@ -103,7 +102,7 @@ export function PublicHeader() {
             >
               Open Account
             </AuthTransitionLink>
-          </nav>
+          </div>
 
           <button
             aria-label="Open navigation menu"

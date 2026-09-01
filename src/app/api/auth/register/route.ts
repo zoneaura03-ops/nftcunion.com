@@ -17,6 +17,7 @@ export async function POST(request: Request) {
     if (
       !firstName ||
       !lastName ||
+      email.length > 254 ||
       !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
       password.length < 10 ||
       !/[A-Z]/.test(password) ||
@@ -83,8 +84,26 @@ export async function POST(request: Request) {
       userId = Number((result as { insertId: number }).insertId);
     }
     const code = await issueVerificationCode(userId);
-    await sendVerificationEmail(email, code);
-    return NextResponse.json({ ok: true });
+    let emailSent = true;
+    try {
+      await sendVerificationEmail(email, code);
+    } catch (mailError) {
+      emailSent = false;
+      console.error(
+        "Registration email delivery failed:",
+        mailError instanceof Error ? mailError.message : mailError,
+      );
+    }
+    return NextResponse.json({
+      ok: true,
+      emailSent,
+      warning: emailSent
+        ? undefined
+        : "Your account was created, but the verification email could not be delivered. Contact member care or try resending after email service is restored.",
+      ...(process.env.NODE_ENV === "development" && !emailSent
+        ? { developmentCode: code }
+        : {}),
+    });
   } catch (error) {
     console.error(
       "Registration failed:",

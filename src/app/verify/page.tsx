@@ -15,6 +15,7 @@ export default function Page() {
   const [loading, setLoading] = useState(false);
   const [resending, setResending] = useState(false);
   const [seconds, setSeconds] = useState(30);
+  const deliveryFailed = searchParams.get("delivery") === "failed";
 
   useEffect(() => {
     setEmail(
@@ -23,7 +24,10 @@ export default function Page() {
         "",
     );
     const linkCode = searchParams.get("code") || "";
+    const developmentCode =
+      sessionStorage.getItem("nftcunion_development_verification_code") || "";
     if (/^\d{6}$/.test(linkCode)) setCode(linkCode);
+    else if (/^\d{6}$/.test(developmentCode)) setCode(developmentCode);
   }, [searchParams]);
 
   useEffect(() => {
@@ -86,6 +90,12 @@ export default function Page() {
           </strong>
           .
         </p>
+        {deliveryFailed && (
+          <p className="mt-5 rounded-md border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-800">
+            Your account was created, but email delivery is currently unavailable. You can try resending shortly or contact member care at{" "}
+            <a className="font-semibold underline" href="mailto:support@nftcunion.com">support@nftcunion.com</a>.
+          </p>
+        )}
         <input
           aria-label="Verification code"
           inputMode="numeric"

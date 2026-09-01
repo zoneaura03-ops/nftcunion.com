@@ -144,6 +144,9 @@ type AuthResponse = {
   error?: string;
   ok?: boolean;
   role?: "user" | "admin";
+  emailSent?: boolean;
+  developmentCode?: string;
+  warning?: string;
 };
 
 async function readAuthResponse(response: Response): Promise<AuthResponse> {
@@ -387,8 +390,16 @@ function Registration() {
         throw new Error(data.error || "Unable to send the verification code.");
       }
       sessionStorage.setItem("nftcunion_verification_email", email);
+      if (!data.emailSent && data.developmentCode) {
+        sessionStorage.setItem(
+          "nftcunion_development_verification_code",
+          String(data.developmentCode),
+        );
+      }
       setTransitioning(true);
-      router.push(`/verify?email=${encodeURIComponent(email)}`);
+      router.push(
+        `/verify?email=${encodeURIComponent(email)}${data.emailSent === false ? "&delivery=failed" : ""}`,
+      );
     } catch (reason) {
       setError(
         reason instanceof Error
@@ -479,6 +490,10 @@ function Registration() {
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
               />
+              <p className="text-[11px] leading-5 text-neutral-400">
+                Use any valid email address, including Gmail, Outlook, Yahoo,
+                iCloud, or your business email.
+              </p>
               <div className="grid gap-5 sm:grid-cols-2">
                 <Select
                   label="Country of residence"
