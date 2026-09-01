@@ -1,4 +1,5 @@
 import PDFDocument from "pdfkit";
+import path from "node:path";
 
 type HistoryEntry = {
   reference: string;
@@ -25,10 +26,27 @@ export async function buildTransactionHistoryPdf({
     doc.on("end", () => resolve(Buffer.concat(chunks)));
     doc.on("error", reject);
   });
+  const logoPath = path.join(
+    process.cwd(),
+    "public",
+    "images",
+    "nftcunion-email-logo-v2.png",
+  );
+
+  doc.image(logoPath, 42, 34, {
+    fit: [250, 52],
+  });
+  doc
+    .moveTo(42, 96)
+    .lineTo(570, 96)
+    .strokeColor("#dfe5ef")
+    .lineWidth(0.8)
+    .stroke();
+  doc.y = 112;
   doc
     .fillColor("#a77d27")
-    .fontSize(12)
-    .text("NORTH FOUNTAIN TRUST CREDIT UNION", { characterSpacing: 3 });
+    .fontSize(9)
+    .text("MEMBER TRANSACTION RECORD", { characterSpacing: 2.2 });
   doc
     .fillColor("#111827")
     .fontSize(24)

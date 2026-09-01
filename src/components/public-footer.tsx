@@ -7,6 +7,7 @@ const companyLinks = [
   ["Our story", "/about"],
   ["Member services", "/features"],
   ["Business membership", "/corporate-banking"],
+  ["Frequently asked questions", "/faq"],
   ["Contact", "/#contact"],
 ] as const;
 const serviceLinks = [
@@ -85,11 +86,10 @@ export function PublicFooter() {
             © 2026 North Fountain Trust Credit Union. All rights reserved.
           </span>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            {["Privacy", "Terms", "Security", "Accessibility"].map((item) => (
-              <Link key={item} href="/legal" className="hover:text-[#d8b45b]">
-                {item}
-              </Link>
-            ))}
+            <Link href="/privacy" className="hover:text-[#d8b45b]">Privacy</Link>
+            <Link href="/legal" className="hover:text-[#d8b45b]">Terms</Link>
+            <Link href="/legal" className="hover:text-[#d8b45b]">Security</Link>
+            <Link href="/faq" className="hover:text-[#d8b45b]">FAQs</Link>
           </div>
         </div>
       </div>

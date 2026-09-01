@@ -11,7 +11,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "prebuild": "node --env-file-if-exists=.env scripts/migrate.mjs"
+    "prebuild": "node --env-file-if-exists=.env scripts/migrate.mjs --if-configured"
   },
   "dependencies": {
     "@types/node": "^22.20.1",

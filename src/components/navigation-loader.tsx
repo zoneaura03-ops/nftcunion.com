@@ -4,12 +4,12 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { LogoLoader } from "./logo-loader";
 
-const MINIMUM_VISIBLE_MS = 120;
-const MAXIMUM_VISIBLE_MS = 1200;
+const MINIMUM_VISIBLE_MS = 450;
+const MAXIMUM_VISIBLE_MS = 2200;
 
 export function NavigationLoader({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const startedAt = useRef(0);
   const startedPath = useRef("");
   const lastPath = useRef(pathname);
@@ -64,6 +64,15 @@ export function NavigationLoader({ children }: { children: ReactNode }) {
       start();
     }
 
+    if (startedAt.current === 0) {
+      startedAt.current = Date.now();
+      startedPath.current = "__initial_page_load__";
+      fallbackTimer.current = window.setTimeout(
+        () => setLoading(false),
+        MAXIMUM_VISIBLE_MS,
+      );
+    }
+
     document.addEventListener("click", handleClick, true);
     function handleHistoryNavigation() {
       start(lastPath.current);
@@ -95,7 +104,7 @@ export function NavigationLoader({ children }: { children: ReactNode }) {
     <>
       {children}
       {loading && (
-        <div className="fixed inset-0 z-[200] bg-[#0b1f3a]/20 backdrop-blur-[1px]">
+        <div className="fixed inset-0 z-[200] bg-[#f7f9fc]/95 backdrop-blur-sm">
           <LogoLoader transparent />
         </div>
       )}

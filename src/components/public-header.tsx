@@ -25,6 +25,7 @@ const links = [
   { label: "Corporate Banking", href: "/corporate-banking", icon: Building2 },
   { label: "Personal Banking", href: "/features#personal", icon: UserRound },
   { label: "Contact Us", href: "/#contact", icon: CircleHelp },
+  { label: "FAQs", href: "/faq", icon: CircleHelp },
 ];
 
 export function PublicHeader() {

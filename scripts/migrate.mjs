@@ -2,6 +2,27 @@ import mysql from "mysql2/promise";
 import { readFile, readdir } from "node:fs/promises";
 import process from "node:process";
 
+const optionalWhenUnconfigured = process.argv.includes("--if-configured");
+const deploymentRequired = [
+  "DB_HOST",
+  "DB_USER",
+  "DB_PASSWORD",
+  "DB_DATABASE",
+];
+const missingDeploymentSettings = deploymentRequired.filter(
+  (name) => !process.env[name]?.trim(),
+);
+
+if (optionalWhenUnconfigured && missingDeploymentSettings.length > 0) {
+  console.warn(
+    `Skipping automatic database migrations because these deployment variables are not configured: ${missingDeploymentSettings.join(", ")}.`,
+  );
+  console.warn(
+    "Add the production database variables in Hostinger, then run npm run db:migrate before using database-backed features.",
+  );
+  process.exit(0);
+}
+
 const required = ["DB_HOST", "DB_USER", "DB_DATABASE"];
 for (const name of required) {
   if (

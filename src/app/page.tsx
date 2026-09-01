@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { Metadata } from "next";
 import {
   ArrowRight,
   BadgeCheck,
@@ -25,6 +26,14 @@ const productIcons = [Landmark, PiggyBank, CreditCard, HandCoins];
 const benefitIcons = [Globe2, Smartphone, ShieldCheck, Headphones];
 const stepIcons = [UserPlus, BadgeCheck, WalletCards];
 
+export const metadata: Metadata = {
+  title: "Member Banking for Your Next Chapter",
+  description: "Explore secure checking, savings, cards, transfers, and member-focused digital banking with North Fountain Trust Credit Union.",
+  alternates: { canonical: "/" },
+  openGraph: { title: "North Fountain Trust Credit Union | Member Banking", description: "Thoughtful banking, secure digital access, and personal guidance for every financial chapter.", url: "/", images: ["/images/nftcunion-hero-editorial-v3.webp"] },
+  twitter: { card: "summary_large_image", title: "North Fountain Trust Credit Union", description: "Thoughtful banking and secure digital access for every financial chapter.", images: ["/images/nftcunion-hero-editorial-v3.webp"] },
+};
+
 export default function Home() {
   const { hero, proof, products, benefits, steps, security, testimonials } =
     publicContent;
@@ -41,7 +50,7 @@ export default function Home() {
           alt="A North Fountain member meeting with a financial adviser"
           fill
           priority
-          quality={95}
+          quality={80}
           sizes="100vw"
           className="object-cover object-[64%_center]"
         />
@@ -131,7 +140,7 @@ export default function Home() {
                 src="/images/nftcunion-members-editorial-v4.webp"
                 alt="A member reviewing plans with a financial guide"
                 fill
-                quality={95}
+                quality={80}
                 sizes="(min-width:1024px) 45vw,100vw"
                 className="object-cover"
               />
@@ -214,7 +223,7 @@ export default function Home() {
               src="/images/nftcunion-security-editorial-v4.webp"
               alt="Secure mobile account access"
               fill
-              quality={95}
+              quality={80}
               sizes="(min-width:1024px) 52vw,100vw"
               className="object-cover"
             />

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   ArrowRight,
   Building2,
@@ -27,6 +28,13 @@ const productIcons = [
   ChartPie,
 ];
 const benefitIcons = [Smartphone, Globe2, Headphones, LockKeyhole];
+
+export const metadata: Metadata = {
+  title: "Personal Banking Services",
+  description: "Explore North Fountain checking, savings, cards, transfers, digital access, and member support services.",
+  alternates: { canonical: "/features" },
+  openGraph: { title: "Banking Services | North Fountain Trust Credit Union", description: "Flexible personal banking services built around members and their goals.", url: "/features", images: ["/images/nftcunion-security-editorial-v4.webp"] },
+};
 
 export default function FeaturesPage() {
   const { products, benefits, features } = publicContent;

@@ -61,7 +61,7 @@ export function VirtualCardArt({
             />
             <div>
               <p
-                className={`${compact ? "text-[6px]" : "text-[clamp(.52rem,1.8vw,.78rem)]"} font-bold tracking-[.2em] text-[#f1d47b]`}
+              className={`${compact ? "max-w-[170px] text-[7px] leading-[1.45] tracking-[.14em]" : "text-[clamp(.52rem,1.8vw,.78rem)] tracking-[.2em]"} font-semibold text-[#f1d47b]`}
               >
                 NORTH FOUNTAIN TRUST CREDIT UNION
               </p>
@@ -131,7 +131,7 @@ function NetworkMark({
   if (brand === "amex")
     return (
       <span
-        className={`${compact ? "text-[5px]" : "text-[clamp(.42rem,1.5vw,.68rem)]"} font-bold tracking-[.12em] text-[#e4c66d]`}
+        className={`${compact ? "max-w-12 text-right text-[6px] leading-[1.4]" : "text-[clamp(.42rem,1.5vw,.68rem)]"} font-semibold tracking-[.1em] text-[#e4c66d]`}
       >
         CREDIT CARD
       </span>

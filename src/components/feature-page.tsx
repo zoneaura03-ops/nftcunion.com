@@ -1284,13 +1284,14 @@ function VirtualCardThumb({
   };
 }) {
   return (
-    <div className="aspect-[1.586/1] w-full max-w-[260px] overflow-hidden rounded-2xl shadow-lg">
+    <div className="aspect-[1.586/1] w-full max-w-[390px] overflow-hidden rounded-2xl shadow-lg">
       <VirtualCardArt
         brand={card.brand}
         lastFour={card.last_four}
         expiryMonth={card.expiry_month}
         expiryYear={card.expiry_year}
         holder={card.holder_name}
+        compact
       />
     </div>
   );

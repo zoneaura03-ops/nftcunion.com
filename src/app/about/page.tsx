@@ -1,8 +1,16 @@
+import type { Metadata } from "next";
 import { PublicHeader } from "../../components/public-header";
 import { LanguageSelector } from "../../components/language-selector";
 import { PublicFooter } from "../../components/public-footer";
 import { AuthTransitionLink } from "../../components/auth-transition-link";
 import { ArrowRight, Globe2, ShieldCheck, UsersRound } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About Our Credit Union",
+  description: "Discover North Fountain Trust Credit Union's member-first approach to secure, accessible, and thoughtful digital banking.",
+  alternates: { canonical: "/about" },
+  openGraph: { title: "About North Fountain Trust Credit Union", description: "Confidence, access, and progress through member-focused banking.", url: "/about", images: ["/images/nftcunion-members-editorial-v4.webp"] },
+};
 
 export default function AboutPage() {
   return (

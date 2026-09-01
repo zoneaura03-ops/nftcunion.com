@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Fingerprint, LockKeyhole, Sparkles } from "lucide-react";
 import { BrowserBackButton } from "./browser-back-button";
-import Logo from "./logo";
 
 export function AuthLayout({
   children,
@@ -27,16 +26,11 @@ export function AuthLayout({
             }
             fill
             priority
-            quality={90}
+            quality={80}
             sizes="46vw"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f3a]/85 via-[#0b1f3a]/15 to-transparent" />
-          {register && (
-            <div className="absolute left-10 top-9 rounded-2xl bg-white/95 px-4 py-3 backdrop-blur">
-              <Logo />
-            </div>
-          )}
           <div className="absolute inset-x-10 bottom-10 text-white">
             <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[.2em] text-[#e4c979]">
               <Sparkles size={14} />

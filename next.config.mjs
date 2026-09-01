@@ -3,6 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   serverExternalPackages: ["pdfkit"],
+  images: {
+    qualities: [75, 80],
+  },
   async headers() {
     const csp = [
       "default-src 'self'",

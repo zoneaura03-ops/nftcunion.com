@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import { PublicHeader } from "../../components/public-header";
 import { PublicFooter } from "../../components/public-footer";
+
+export const metadata: Metadata = {
+  title: "Legal Disclosures and Terms",
+  description: "Review North Fountain Trust Credit Union legal, electronic communication, security, accessibility, and regulatory disclosures.",
+  alternates: { canonical: "/legal" },
+  openGraph: { title: "Legal Disclosures | North Fountain Trust Credit Union", description: "Clear terms, security information, and important service disclosures.", url: "/legal" },
+};
 const sections = [
   [
     "Demonstration notice",

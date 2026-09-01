@@ -295,9 +295,9 @@ function DashboardCard({
     <Link
       href="/dashboard/cards"
       aria-label={`Open ${card.name}`}
-      className="group flex min-w-0 items-center gap-4 rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_7px_22px_rgba(10,23,40,.06)] transition hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(10,23,40,.1)] sm:p-5"
+      className="group grid min-w-0 gap-4 rounded-2xl border border-[#e1e6ef] bg-white p-4 shadow-[0_7px_22px_rgba(10,23,40,.06)] transition hover:border-bank-200 hover:shadow-[0_12px_30px_rgba(10,23,40,.1)] sm:grid-cols-[180px_minmax(0,1fr)_auto] sm:items-center sm:p-5"
     >
-      <span className="block h-[76px] w-[116px] shrink-0 overflow-hidden rounded-xl shadow-md">
+      <span className="block aspect-[1.586/1] w-full max-w-[320px] overflow-hidden rounded-xl shadow-md sm:max-w-[180px]">
         <VirtualCardArt
           brand={card.brand}
           lastFour={card.lastFour}
@@ -322,20 +322,22 @@ function DashboardCard({
         </span>
       </span>
 
-      <span className="hidden shrink-0 text-right sm:block">
-        <span className="block text-[10px] text-neutral-400">
-          {active ? "Balance" : "Status"}
+      <span className="flex items-center justify-between gap-4 border-t border-neutral-100 pt-3 text-left sm:block sm:border-0 sm:pt-0 sm:text-right">
+        <span>
+          <span className="block text-[10px] text-neutral-400">
+            {active ? "Balance" : "Status"}
+          </span>
+          <span
+            className={`mt-1 block font-bold ${active ? "text-lg text-[#111827]" : pending ? "text-amber-700" : "text-[#0b1f3a]"}`}
+          >
+            {active ? money(card.balance, card.currency) : statusLabel}
+          </span>
         </span>
-        <span
-          className={`mt-1 block font-bold ${active ? "text-lg text-[#111827]" : pending ? "text-amber-700" : "text-[#0b1f3a]"}`}
-        >
-          {active ? money(card.balance, card.currency) : statusLabel}
-        </span>
+        <ChevronRight
+          size={20}
+          className="shrink-0 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-gold-500 sm:ml-auto sm:mt-2"
+        />
       </span>
-      <ChevronRight
-        size={20}
-        className="shrink-0 text-neutral-400 transition group-hover:translate-x-0.5 group-hover:text-gold-500"
-      />
     </Link>
   );
 }

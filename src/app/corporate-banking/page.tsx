@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { PublicHeader } from "../../components/public-header";
 import { LanguageSelector } from "../../components/language-selector";
 import { PublicFooter } from "../../components/public-footer";
@@ -9,6 +10,13 @@ import {
   Globe2,
   HandCoins,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Corporate and Business Banking",
+  description: "Business accounts, payment tools, working-capital support, and cash-flow insights from North Fountain Trust Credit Union.",
+  alternates: { canonical: "/corporate-banking" },
+  openGraph: { title: "Corporate Banking | North Fountain Trust Credit Union", description: "Financial tools designed to help businesses operate clearly and grow responsibly.", url: "/corporate-banking", images: ["/images/nftcunion-corporate-hero-v2.webp"] },
+};
 
 export default function CorporateBankingPage() {
   const services = [
