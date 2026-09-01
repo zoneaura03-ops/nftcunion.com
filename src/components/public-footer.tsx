@@ -40,7 +40,7 @@ export function PublicFooter() {
             href={`mailto:${footer.email}`}
             className="inline-flex min-h-14 w-fit items-center gap-3 rounded-full bg-[#d8b45b] px-7 text-sm font-semibold text-[#07182c] hover:bg-[#e4c979] lg:justify-self-end"
           >
-            Speak with member care <ArrowUpRight size={16} />
+            Contact member care <ArrowUpRight size={16} />
           </a>
         </div>
 

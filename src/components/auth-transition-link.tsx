@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, type MouseEvent, type ReactNode } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { LogoLoader } from "./logo-loader";
 
 export function AuthTransitionLink({
@@ -17,6 +17,7 @@ export function AuthTransitionLink({
   onNavigate?: () => void;
 }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [loading, setLoading] = useState(false);
 
   function startLoading(event: MouseEvent<HTMLAnchorElement>) {
@@ -32,7 +33,9 @@ export function AuthTransitionLink({
     if (loading) return;
     onNavigate?.();
     setLoading(true);
-    router.push(href);
+    const homepageAuthTransition =
+      pathname === "/" && (href.startsWith("/login") || href.startsWith("/register"));
+    window.setTimeout(() => router.push(href), homepageAuthTransition ? 700 : 0);
   }
 
   return (
