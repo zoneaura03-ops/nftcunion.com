@@ -1,7 +1,10 @@
 import { hash } from "bcryptjs";
 import { NextResponse } from "next/server";
 import { db, type DatabaseRow } from "../../../../lib/db";
-import { sendVerificationEmail } from "../../../../lib/mail";
+import {
+  assertMailConfigured,
+  sendVerificationEmail,
+} from "../../../../lib/mail";
 import { issueVerificationCode } from "../../../../lib/verification-codes";
 
 export async function POST(request: Request) {
@@ -43,9 +46,23 @@ export async function POST(request: Request) {
         { error: "An account with this email already exists." },
         { status: 409 },
       );
+    try {
+      assertMailConfigured();
+    } catch (mailError) {
+      return NextResponse.json(
+        {
+          error:
+            mailError instanceof Error
+              ? mailError.message
+              : "Email delivery is not configured.",
+        },
+        { status: 503 },
+      );
+    }
     const passwordHash = await hash(password, 12);
     const pinHash = await hash(pin, 12);
     let userId: number;
+    let createdUser = false;
     if (existing[0]) {
       userId = existing[0].id;
       await db.execute(
@@ -82,28 +99,30 @@ export async function POST(request: Request) {
         ],
       );
       userId = Number((result as { insertId: number }).insertId);
+      createdUser = true;
     }
     const code = await issueVerificationCode(userId);
-    let emailSent = true;
     try {
       await sendVerificationEmail(email, code);
     } catch (mailError) {
-      emailSent = false;
       console.error(
         "Registration email delivery failed:",
         mailError instanceof Error ? mailError.message : mailError,
       );
+      if (createdUser) {
+        await db.execute("DELETE FROM users WHERE id=? AND status='pending'", [
+          userId,
+        ]);
+      }
+      return NextResponse.json(
+        {
+          error:
+            "We could not send the verification email, so no account was created. Please try again later.",
+        },
+        { status: 503 },
+      );
     }
-    return NextResponse.json({
-      ok: true,
-      emailSent,
-      warning: emailSent
-        ? undefined
-        : "Your account was created, but the verification email could not be delivered. Contact member care or try resending after email service is restored.",
-      ...(process.env.NODE_ENV === "development" && !emailSent
-        ? { developmentCode: code }
-        : {}),
-    });
+    return NextResponse.json({ ok: true, emailSent: true });
   } catch (error) {
     console.error(
       "Registration failed:",

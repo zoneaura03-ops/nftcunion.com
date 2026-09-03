@@ -19,7 +19,7 @@ const faqs = [
   ["How do transfers work?", "Available transfer options appear in your dashboard. Review recipient information, applicable requirements, amount, and confirmation details carefully before submitting."],
   ["Can I apply for a virtual card?", "Eligible verified members can submit a card application from the Cards page. Applications remain pending until reviewed and approved."],
   ["How are my sessions protected?", "User sessions automatically expire after 30 minutes of inactivity and administrator sessions after 15 minutes. A warning appears one minute before logout."],
-  ["How can I contact member care?", "Use secure customer support inside your dashboard or email support@nftcunion.com. Never send passwords, PINs, CVVs, or complete card numbers."],
+  ["How can I contact member care?", "Use secure customer support inside your dashboard or email support@nftcun.com. Never send passwords, PINs, CVVs, or complete card numbers."],
 ] as const;
 
 export default function FaqPage() {

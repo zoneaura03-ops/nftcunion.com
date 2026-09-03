@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
-import { sendVerificationEmail } from "../../../../../lib/mail";
+import {
+  assertMailConfigured,
+  sendVerificationEmail,
+} from "../../../../../lib/mail";
 import { issueVerificationCode } from "../../../../../lib/verification-codes";
 import { db, type DatabaseRow } from "../../../../../lib/db";
 
@@ -15,6 +18,7 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     }
+    assertMailConfigured();
     const normalizedEmail = email.trim().toLowerCase();
     const [users] = await db.execute<DatabaseRow[]>(
       "SELECT id FROM users WHERE email=? AND status='pending' LIMIT 1",

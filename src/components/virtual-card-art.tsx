@@ -187,7 +187,7 @@ export function VirtualCardBack({
             </span>
           </div>
           <p className="mt-1 text-[clamp(.3rem,1vw,.43rem)] text-white/45">
-            This card is issued for authorized use only. support@nftcunion.com
+            This card is issued for authorized use only. support@nftcun.com
           </p>
         </div>
         <span className="shrink-0 text-[clamp(.42rem,1.4vw,.64rem)] tracking-[.16em] text-white/65">

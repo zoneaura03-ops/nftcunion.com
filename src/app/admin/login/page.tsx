@@ -65,7 +65,7 @@ export default function Page() {
         </div>
         <label className="mt-7 block">
           <span className="label">Admin email</span>
-          <input required value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" className="field mt-2" type="email" placeholder="admin@nftcunion.com" />
+          <input required value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" className="field mt-2" type="email" placeholder="admin@nftcun.com" />
         </label>
         <label className="mt-4 block">
           <span className="label">Password</span>

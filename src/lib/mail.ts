@@ -22,6 +22,10 @@ function mailConfig() {
   };
 }
 
+export function assertMailConfigured() {
+  mailConfig();
+}
+
 const brandLogoCid = "nftcunion-logo";
 function brandLogoAttachment() {
   return {

@@ -84,7 +84,7 @@ export const publicContent = {
       "Contact Us",
     ],
     address: "100 North Fountain Plaza, Minneapolis, MN 55401, United States",
-    email: "support@nftcunion.com",
+    email: "support@nftcun.com",
   },
   proof: [
     ["4.5M+", "Customers worldwide"],

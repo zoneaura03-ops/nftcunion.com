@@ -92,8 +92,8 @@ export default function Page() {
         </p>
         {deliveryFailed && (
           <p className="mt-5 rounded-md border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-800">
-            Your account was created, but email delivery is currently unavailable. You can try resending shortly or contact member care at{" "}
-            <a className="font-semibold underline" href="mailto:support@nftcunion.com">support@nftcunion.com</a>.
+            Email delivery is currently unavailable. You can try resending shortly or contact member care at{" "}
+            <a className="font-semibold underline" href="mailto:support@nftcun.com">support@nftcun.com</a>.
           </p>
         )}
         <input

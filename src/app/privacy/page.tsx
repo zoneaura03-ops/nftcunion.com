@@ -22,5 +22,28 @@ const sections = [
 ] as const;
 
 export default function PrivacyPage() {
-  return <main id="main-content" className="min-h-screen bg-[#f8fafc] text-[#0b1f3a]"><PublicHeader/><section className="bg-[#07182c] px-5 py-20 text-white sm:px-8"><div className="mx-auto max-w-4xl"><p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[.22em] text-[#d8b45b]"><ShieldCheck size={16}/> Privacy and data care</p><h1 className="mt-5 font-serif text-5xl font-normal sm:text-6xl">Privacy Policy</h1><p className="mt-5 max-w-2xl text-sm leading-7 text-white/65">A clear overview of how personal information is handled when you use North Fountain Trust Credit Union digital services.</p><p className="mt-4 text-xs text-white/45">Last updated: September 1, 2026</p></div></section><section className="mx-auto max-w-4xl px-5 py-16 sm:px-8"><div className="space-y-5">{sections.map(([title,copy],index)=><article key={title} className="rounded-2xl border border-[#e1e6ef] bg-white p-6 shadow-[0_8px_24px_rgba(11,31,58,.04)] sm:p-8"><p className="text-[10px] font-bold uppercase tracking-[.2em] text-[#b58e35]">0{index+1}</p><h2 className="mt-3 font-serif text-2xl">{title}</h2><p className="mt-3 text-sm leading-7 text-slate-600">{copy}</p></article>)}</div><aside className="mt-10 rounded-2xl bg-[#0b1f3a] p-7 text-white"><Mail className="text-[#d8b45b]"/><h2 className="mt-4 font-serif text-2xl">Privacy questions</h2><p className="mt-2 text-sm leading-7 text-white/60">Contact <a className="text-[#d8b45b] underline" href="mailto:support@nftcunion.com">support@nftcunion.com</a> or review our <Link className="text-[#d8b45b] underline" href="/faq">frequently asked questions</Link>.</p></aside></section><PublicFooter/></main>;
+  return (
+    <main id="main-content" className="min-h-screen bg-[#f8fafc] text-[#0b1f3a]">
+      <PublicHeader />
+      <section className="bg-[#07182c] px-5 py-20 text-white sm:px-8">
+        <div className="mx-auto max-w-4xl">
+          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[.22em] text-[#d8b45b]"><ShieldCheck size={16}/> Privacy and data care</p>
+          <h1 className="mt-5 font-serif text-5xl font-normal sm:text-6xl">Privacy Policy</h1>
+          <p className="mt-5 max-w-2xl text-sm leading-7 text-white/65">A clear overview of how personal information is handled when you use North Fountain Trust Credit Union digital services.</p>
+          <p className="mt-4 text-xs text-white/45">Last updated: September 1, 2026</p>
+        </div>
+      </section>
+      <section className="mx-auto max-w-4xl px-5 py-16 sm:px-8">
+        <div className="space-y-5">
+          {sections.map(([title, copy], index) => <article key={title} className="rounded-2xl border border-[#e1e6ef] bg-white p-6 shadow-[0_8px_24px_rgba(11,31,58,.04)] sm:p-8"><p className="text-[10px] font-bold uppercase tracking-[.2em] text-[#b58e35]">0{index + 1}</p><h2 className="mt-3 font-serif text-2xl">{title}</h2><p className="mt-3 text-sm leading-7 text-slate-600">{copy}</p></article>)}
+        </div>
+        <aside className="mt-10 rounded-2xl bg-[#0b1f3a] p-7 text-white">
+          <Mail className="text-[#d8b45b]"/>
+          <h2 className="mt-4 font-serif text-2xl">Privacy questions</h2>
+          <p className="mt-2 text-sm leading-7 text-white/60">Contact <a className="text-[#d8b45b] underline" href="mailto:support@nftcun.com">support@nftcun.com</a> or review our <Link className="text-[#d8b45b] underline" href="/faq">frequently asked questions</Link>.</p>
+        </aside>
+      </section>
+      <PublicFooter />
+    </main>
+  );
 }
