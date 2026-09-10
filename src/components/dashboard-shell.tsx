@@ -535,7 +535,7 @@ export function DashboardShell({
               onClick={() => setDrawer(false)}
               className="fixed inset-0 z-40 bg-[#07182c]/55 backdrop-blur-sm lg:hidden"
             />
-            <aside className="fixed inset-y-0 left-0 z-50 flex w-[78%] min-w-[286px] max-w-[430px] flex-col bg-white shadow-2xl lg:hidden">
+            <aside className="fixed inset-y-0 left-0 z-50 flex w-[min(88vw,430px)] flex-col bg-white shadow-2xl lg:hidden">
               <div className="border-b border-[#e2e7f0] p-5">
                 <div className="flex items-start gap-3">
                   <Image
@@ -600,7 +600,7 @@ export function DashboardShell({
         )}
         <main
           id="main-content"
-          className="mx-auto w-full max-w-[1180px] p-4 sm:p-6 lg:p-8"
+          className="mx-auto w-full max-w-[1180px] px-3 pb-24 pt-4 sm:p-6 lg:p-8"
         >
           {!user.kycVerified && (
             <Link

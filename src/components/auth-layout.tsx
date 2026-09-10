@@ -10,8 +10,8 @@ export function AuthLayout({
   register?: boolean;
 }) {
   return (
-    <main className="min-h-screen bg-[#edf6f4] p-3 sm:p-5 lg:p-7">
-      <div className="mx-auto grid min-h-[calc(100vh-24px)] max-w-[1480px] overflow-hidden rounded-[32px] bg-white shadow-[0_30px_90px_rgba(11,31,58,.12)] sm:min-h-[calc(100vh-40px)] lg:min-h-[calc(100vh-56px)] lg:grid-cols-[.92fr_1.08fr]">
+    <main className="min-h-[100dvh] bg-[#edf6f4] sm:p-5 lg:p-7">
+      <div className="mx-auto grid min-h-[100dvh] max-w-[1480px] overflow-hidden bg-white shadow-[0_30px_90px_rgba(11,31,58,.12)] sm:min-h-[calc(100dvh-40px)] sm:rounded-[32px] lg:min-h-[calc(100dvh-56px)] lg:grid-cols-[.92fr_1.08fr]">
         <aside className="relative hidden overflow-hidden lg:block">
           <Image
             src={
@@ -45,7 +45,7 @@ export function AuthLayout({
             </p>
           </div>
         </aside>
-        <section className="relative flex min-h-screen items-center justify-center px-4 py-20 sm:min-h-0 sm:px-8 lg:px-14">
+        <section className="relative flex min-h-[100dvh] items-center justify-center px-4 py-16 sm:min-h-0 sm:px-8 sm:py-20 lg:px-14">
           {register && (
             <BrowserBackButton className="absolute left-4 top-4 z-20 sm:hidden" />
           )}

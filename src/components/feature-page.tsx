@@ -639,7 +639,7 @@ function Deposit() {
         title="Deposit funds"
         copy="Choose a supported digital asset and send only over the displayed network."
       />
-      <div className="mt-7 grid grid-cols-3 gap-3">
+      <div className="mt-7 grid grid-cols-1 gap-3 min-[400px]:grid-cols-3">
         {(["btc", "eth", "usdt"] as const).map((value) => {
           const Icon =
             value === "btc"

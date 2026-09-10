@@ -30,7 +30,7 @@ export default function Page() {
     router.push("/login?notice=password-changed");
   }
   return (
-    <main className="grid min-h-screen place-items-center bg-bank-50 px-4">
+    <main className="grid min-h-[100dvh] place-items-center bg-bank-50 px-4">
       <form onSubmit={submit} className="card w-full max-w-md rounded-xl p-8">
         <Logo />
         <h1 className="mt-8 text-3xl">Choose a new password</h1>

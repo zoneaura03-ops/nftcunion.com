@@ -28,10 +28,23 @@ const stepIcons = [UserPlus, BadgeCheck, WalletCards];
 
 export const metadata: Metadata = {
   title: "Member Banking for Your Next Chapter",
-  description: "Explore secure checking, savings, cards, transfers, and member-focused digital banking with North Fountain Trust Credit Union.",
+  description:
+    "Explore secure checking, savings, cards, transfers, and member-focused digital banking with North Fountain Trust Credit Union.",
   alternates: { canonical: "/" },
-  openGraph: { title: "North Fountain Trust Credit Union | Member Banking", description: "Thoughtful banking, secure digital access, and personal guidance for every financial chapter.", url: "/", images: ["/images/nftcunion-hero-editorial-v3.webp"] },
-  twitter: { card: "summary_large_image", title: "North Fountain Trust Credit Union", description: "Thoughtful banking and secure digital access for every financial chapter.", images: ["/images/nftcunion-hero-editorial-v3.webp"] },
+  openGraph: {
+    title: "North Fountain Trust Credit Union | Member Banking",
+    description:
+      "Thoughtful banking, secure digital access, and personal guidance for every financial chapter.",
+    url: "/",
+    images: ["/images/nftcunion-hero-editorial-v3.webp"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "North Fountain Trust Credit Union",
+    description:
+      "Thoughtful banking and secure digital access for every financial chapter.",
+    images: ["/images/nftcunion-hero-editorial-v3.webp"],
+  },
 };
 
 export default function Home() {
@@ -44,7 +57,7 @@ export default function Home() {
     >
       <PublicHeader />
 
-      <section className="relative isolate min-h-[680px] overflow-hidden bg-[#07182c] sm:min-h-[720px] lg:min-h-[760px]">
+      <section className="relative isolate min-h-[600px] overflow-hidden sm:min-h-[720px] bg-[#07182c] lg:min-h-[760px]">
         <Image
           src="/images/nftcunion-hero-editorial-v3.webp"
           alt="A North Fountain member meeting with a financial adviser"
@@ -56,13 +69,13 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,18,34,.98)_0%,rgba(5,18,34,.9)_32%,rgba(5,18,34,.44)_58%,rgba(5,18,34,.08)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#07182c]/75 to-transparent" />
-        <div className="relative mx-auto flex min-h-[680px] max-w-[1220px] items-center px-5 py-16 sm:min-h-[720px] sm:px-8 lg:min-h-[760px]">
+        <div className="relative mx-auto flex min-h-[600px] max-w-[1220px] items-center px-5 py-16 sm:min-h-[720px] sm:px-8 lg:min-h-[760px]">
           <div className="max-w-[650px] text-white">
             <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[.24em] text-[#d8b45b]">
               <span className="h-px w-10 bg-[#d8b45b]" />
               {hero.eyebrow}
             </p>
-            <h1 className="mt-7 max-w-[620px] font-serif text-[50px] font-normal leading-[.98] tracking-[-.045em] sm:text-[68px] lg:text-[82px]">
+            <h1 className="mt-7 max-w-[620px] font-serif text-[clamp(2.5rem,13vw,3.125rem)] font-normal leading-[.98] tracking-[-.045em] sm:text-[68px] lg:text-[82px]">
               Banking built around your next chapter.
             </h1>
             <p className="mt-7 max-w-[540px] text-[16px] leading-8 text-white/68">
@@ -103,11 +116,11 @@ export default function Home() {
       </section>
 
       <section className="px-5 py-6 sm:px-8">
-        <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-3 rounded-[28px] border border-[#dce8e6] bg-white p-3 shadow-[0_16px_55px_rgba(11,31,58,.05)] sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-3 rounded-[28px] min-[380px]:grid-cols-2 border border-[#dce8e6] bg-white p-3 shadow-[0_16px_55px_rgba(11,31,58,.05)] sm:grid-cols-3 lg:grid-cols-5">
           {proof.map(([mark, copy], index) => (
             <div
               key={mark}
-              className={`${index === 4 ? "col-span-2 sm:col-span-1" : ""} rounded-2xl px-4 py-6 text-center hover:bg-[#fbf7ed]`}
+              className={`${index === 4 ? "min-[380px]:col-span-2 sm:col-span-1" : ""} rounded-2xl px-4 py-6 text-center hover:bg-[#fbf7ed]`}
             >
               <b className="text-sm tracking-[.12em]">{mark}</b>
               <span className="mt-2 block text-[9px] uppercase tracking-[.12em] text-slate-400">
@@ -125,7 +138,7 @@ export default function Home() {
               <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#b58e35]">
                 Made for members
               </p>
-              <h2 className="mt-5 font-serif text-[42px] font-normal leading-[1.08] sm:text-[56px]">
+              <h2 className="mt-5 font-serif text-4xl font-normal leading-[1.08] sm:text-[56px]">
                 Everyday banking, thoughtfully connected.
               </h2>
             </div>
@@ -135,7 +148,7 @@ export default function Home() {
             </p>
           </div>
           <div className="mt-14 grid overflow-hidden rounded-[34px] bg-[#f4efe4] lg:grid-cols-[.9fr_1.1fr]">
-            <div className="relative min-h-[440px]">
+            <div className="relative min-h-[320px] sm:min-h-[440px]">
               <Image
                 src="/images/nftcunion-members-editorial-v4.webp"
                 alt="A member reviewing plans with a financial guide"
@@ -184,7 +197,7 @@ export default function Home() {
               <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#d8b45b]">
                 Your financial pathway
               </p>
-              <h2 className="mt-5 max-w-2xl font-serif text-[42px] font-normal leading-[1.08] sm:text-[56px]">
+              <h2 className="mt-5 max-w-2xl font-serif text-4xl font-normal leading-[1.08] sm:text-[56px]">
                 Start simply. Grow confidently.
               </h2>
             </div>
@@ -218,7 +231,7 @@ export default function Home() {
 
       <section className="px-5 py-16 sm:px-8 lg:py-20">
         <div className="mx-auto grid max-w-[1180px] gap-14 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
-          <div className="relative min-h-[560px] overflow-hidden rounded-[12%_36px_12%_36px]">
+          <div className="relative min-h-[360px] sm:min-h-[480px] lg:min-h-[560px] overflow-hidden rounded-[12%_36px_12%_36px]">
             <Image
               src="/images/nftcunion-security-editorial-v4.webp"
               alt="Secure mobile account access"
@@ -232,7 +245,7 @@ export default function Home() {
             <p className="text-[11px] font-bold uppercase tracking-[.22em] text-[#b58e35]">
               Quietly protected
             </p>
-            <h2 className="mt-5 font-serif text-[42px] font-normal leading-[1.08] sm:text-[54px]">
+            <h2 className="mt-5 font-serif text-4xl font-normal leading-[1.08] sm:text-[54px]">
               Security that works in the background.
             </h2>
             <p className="mt-6 text-[15px] leading-8 text-slate-500">

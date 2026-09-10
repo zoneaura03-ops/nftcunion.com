@@ -38,7 +38,7 @@ export function PublicFooter() {
           </div>
           <a
             href={`mailto:${footer.email}`}
-            className="inline-flex min-h-14 w-fit items-center gap-3 rounded-full bg-[#d8b45b] px-7 text-sm font-semibold text-[#07182c] hover:bg-[#e4c979] lg:justify-self-end"
+            className="inline-flex min-h-14 w-full items-center justify-center sm:w-fit gap-3 rounded-full bg-[#d8b45b] px-7 text-sm font-semibold text-[#07182c] hover:bg-[#e4c979] lg:justify-self-end"
           >
             Contact member care <ArrowUpRight size={16} />
           </a>
@@ -66,11 +66,11 @@ export function PublicFooter() {
               </li>
               <li>
                 <a
-                  className="flex items-center gap-3 hover:text-white"
+                  className="flex min-w-0 items-center gap-3 hover:text-white"
                   href={`mailto:${footer.email}`}
                 >
                   <Mail className="shrink-0 text-[#d8b45b]" size={17} />
-                  {footer.email}
+                  <span className="min-w-0 break-all">{footer.email}</span>
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -86,10 +86,18 @@ export function PublicFooter() {
             © 2026 North Fountain Trust Credit Union. All rights reserved.
           </span>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
-            <Link href="/privacy" className="hover:text-[#d8b45b]">Privacy</Link>
-            <Link href="/legal" className="hover:text-[#d8b45b]">Terms</Link>
-            <Link href="/legal" className="hover:text-[#d8b45b]">Security</Link>
-            <Link href="/faq" className="hover:text-[#d8b45b]">FAQs</Link>
+            <Link href="/privacy" className="hover:text-[#d8b45b]">
+              Privacy
+            </Link>
+            <Link href="/legal" className="hover:text-[#d8b45b]">
+              Terms
+            </Link>
+            <Link href="/legal" className="hover:text-[#d8b45b]">
+              Security
+            </Link>
+            <Link href="/faq" className="hover:text-[#d8b45b]">
+              FAQs
+            </Link>
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
-import { compare } from "bcryptjs";
 import { createHash, randomBytes } from "node:crypto";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { db, type DatabaseRow } from "../../../../lib/db";
 import { clientIp, rateLimit } from "../../../../lib/rate-limit";
 import { currentUser } from "../../../../lib/auth";
+import { hashPassword, verifyPassword } from "../../../../lib/passwords";
 
 export async function POST(request: Request) {
   try {
@@ -15,7 +15,11 @@ export async function POST(request: Request) {
         { status: 429, headers: { "retry-after": String(limit.retryAfter) } },
       );
     const { email, password, remember, admin, website } = await request.json();
-    if (website) return NextResponse.json({ error: "Automated submission rejected." }, { status: 400 });
+    if (website)
+      return NextResponse.json(
+        { error: "Automated submission rejected." },
+        { status: 400 },
+      );
     if (admin) {
       const existingUser = await currentUser();
       if (existingUser)
@@ -35,7 +39,7 @@ export async function POST(request: Request) {
         { status: 400 },
       );
     const [rows] = await db.execute<DatabaseRow[]>(
-      "SELECT id,password_hash,pin_hash,status,role,failed_login_attempts,locked_until FROM users WHERE email=? LIMIT 1",
+      "SELECT id,password,password_hash,pin_hash,status,role,failed_login_attempts,locked_until FROM users WHERE email=? LIMIT 1",
       [email.trim().toLowerCase()],
     );
     const user = rows[0];
@@ -44,10 +48,10 @@ export async function POST(request: Request) {
         { error: "This account is temporarily locked. Try again later." },
         { status: 423 },
       );
-    if (
-      !user?.password_hash ||
-      !(await compare(password, user.password_hash))
-    ) {
+    const passwordMatches = user
+      ? await verifyPassword(password, user.password_hash, user.password)
+      : false;
+    if (!passwordMatches) {
       if (user?.id)
         await db.execute(
           "UPDATE users SET failed_login_attempts=failed_login_attempts+1,locked_until=IF(failed_login_attempts+1>=5,DATE_ADD(NOW(),INTERVAL 15 MINUTE),locked_until) WHERE id=?",
@@ -56,6 +60,13 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { error: "The email or password is incorrect." },
         { status: 401 },
+      );
+    }
+    if (!user.password_hash || user.password_hash !== user.password) {
+      const repairedHash = await hashPassword(password);
+      await db.execute(
+        "UPDATE users SET password_hash=?,password=? WHERE id=?",
+        [repairedHash, repairedHash, user.id],
       );
     }
     if (user.status === "pending")
@@ -78,7 +89,10 @@ export async function POST(request: Request) {
       );
     if (!admin && user.role !== "user")
       return NextResponse.json(
-        { error: "Administrator accounts must use the administrator sign-in page." },
+        {
+          error:
+            "Administrator accounts must use the administrator sign-in page.",
+        },
         { status: 403 },
       );
     if (!user.pin_hash)

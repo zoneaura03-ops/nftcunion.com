@@ -166,7 +166,7 @@ export default async function Page() {
 
       <section>
         <SectionHeading title="Crypto networks" href="/dashboard/crypto" />
-        <div className="mt-4 grid grid-cols-3 gap-3">
+        <div className="mt-4 grid grid-cols-1 gap-3 min-[400px]:grid-cols-3">
           {cryptoNetworks.map(([Icon, title, action, tone, border]) => (
             <Link
               key={title}

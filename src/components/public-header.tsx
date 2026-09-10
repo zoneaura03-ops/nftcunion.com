@@ -128,7 +128,7 @@ export function PublicHeader() {
           tabIndex={open ? 0 : -1}
         />
         <aside
-          className={`absolute right-0 top-0 flex h-full w-[86%] max-w-[360px] flex-col bg-white px-6 py-6 shadow-2xl transition-transform duration-300 ease-out ${open ? "translate-x-0" : "translate-x-full"}`}
+          className={`absolute right-0 top-0 flex h-[100dvh] w-[min(88vw,360px)] flex-col overflow-y-auto bg-white px-5 py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:px-6 shadow-2xl transition-transform duration-300 ease-out ${open ? "translate-x-0" : "translate-x-full"}`}
         >
           <div className="flex items-center justify-between">
             <Logo inverse />

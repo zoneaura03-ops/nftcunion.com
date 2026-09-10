@@ -78,7 +78,7 @@ export default function Page() {
   }
 
   return (
-    <main className="relative grid min-h-screen place-items-center bg-white px-5 py-20">
+    <main className="relative grid min-h-[100dvh] place-items-center bg-white px-5 py-20">
       <BrowserBackButton className="absolute left-4 top-4 !border-[#d8dfeb] !bg-white !text-gold-500 shadow-sm hover:!bg-bank-50 sm:left-8 sm:top-8" />
       <div className="w-full max-w-md text-center">
         <ShieldCheck className="mx-auto h-16 w-16 rounded-full bg-bank-50 p-4 text-gold-500" />
@@ -92,8 +92,15 @@ export default function Page() {
         </p>
         {deliveryFailed && (
           <p className="mt-5 rounded-md border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-800">
-            Email delivery is currently unavailable. You can try resending shortly or contact member care at{" "}
-            <a className="font-semibold underline" href="mailto:support@nftcun.com">support@nftcun.com</a>.
+            Email delivery is currently unavailable. You can try resending
+            shortly or contact member care at{" "}
+            <a
+              className="font-semibold underline"
+              href="mailto:support@nftcun.com"
+            >
+              support@nftcun.com
+            </a>
+            .
           </p>
         )}
         <input
@@ -104,7 +111,7 @@ export default function Page() {
           maxLength={6}
           value={code}
           onChange={(event) => setCode(event.target.value.replace(/\D/g, ""))}
-          className="field mt-8 text-center text-2xl tracking-[.55em]"
+          className="field mt-8 text-center text-2xl tracking-[.35em] sm:tracking-[.55em]"
           placeholder="000000"
         />
         {error && (

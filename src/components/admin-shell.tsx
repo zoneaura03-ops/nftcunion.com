@@ -195,7 +195,7 @@ export function AdminShell({
                 {searchOpen && (
                   <form
                     onSubmit={submitSearch}
-                    className="absolute right-0 top-12 z-50 w-80 rounded-2xl border bg-white p-4 shadow-xl"
+                    className="fixed inset-x-3 top-20 z-50 rounded-2xl sm:absolute sm:inset-x-auto sm:right-0 sm:top-12 sm:w-80 border bg-white p-4 shadow-xl"
                   >
                     <p className="text-xs font-bold uppercase tracking-widest text-bank-600">
                       Customer search

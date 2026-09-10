@@ -6,6 +6,11 @@ import {
   sendVerificationEmail,
 } from "../../../../lib/mail";
 import { issueVerificationCode } from "../../../../lib/verification-codes";
+import {
+  hashPassword,
+  normalizePassword,
+  passwordFitsBcrypt,
+} from "../../../../lib/passwords";
 
 export async function POST(request: Request) {
   try {
@@ -15,7 +20,7 @@ export async function POST(request: Request) {
       .toLowerCase();
     const firstName = String(body.firstName || "").trim();
     const lastName = String(body.lastName || "").trim();
-    const password = String(body.password || "");
+    const password = normalizePassword(String(body.password || ""));
     const pin = String(body.pin || "");
     if (
       !firstName ||
@@ -27,12 +32,13 @@ export async function POST(request: Request) {
       !/[a-z]/.test(password) ||
       !/\d/.test(password) ||
       !/[^A-Za-z0-9]/.test(password) ||
+      !passwordFitsBcrypt(password) ||
       !/^\d{4}$/.test(pin)
     ) {
       return NextResponse.json(
         {
           error:
-            "Complete all required fields. Passwords must contain at least 10 characters with uppercase, lowercase, number, and symbol; the PIN must contain 4 digits.",
+            "Complete all required fields. Passwords must contain 10 to 72 bytes with uppercase, lowercase, number, and symbol; the PIN must contain 4 digits.",
         },
         { status: 400 },
       );
@@ -59,7 +65,7 @@ export async function POST(request: Request) {
         { status: 503 },
       );
     }
-    const passwordHash = await hash(password, 12);
+    const passwordHash = await hashPassword(password);
     const pinHash = await hash(pin, 12);
     let userId: number;
     let createdUser = false;

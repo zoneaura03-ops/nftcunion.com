@@ -107,7 +107,7 @@ function Frame({
 }) {
   return (
     <div className={`mx-auto w-full ${wide ? "max-w-xl" : "max-w-md"}`}>
-      <div className="rounded-[28px] border border-[#dce8e6] bg-white p-7 shadow-[0_24px_70px_rgba(11,31,58,.10)] sm:p-9">
+      <div className="rounded-2xl border border-[#dce8e6] bg-white p-5 shadow-[0_24px_70px_rgba(11,31,58,.10)] sm:rounded-[28px] sm:p-9">
         <div className="mb-7 flex justify-center border-b border-[#e2e7f0] pb-6">
           <AuthTransitionLink
             href="/"
@@ -623,7 +623,7 @@ function Registration() {
                   setPasswordConfirmation(event.target.value)
                 }
               />
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid gap-4 sm:grid-cols-2">
                 <Field
                   label="4-digit transaction PIN"
                   icon={<Lock size={16} />}

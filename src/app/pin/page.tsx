@@ -45,10 +45,10 @@ export default function Page() {
     }
   }
   return (
-    <main className="relative grid min-h-screen place-items-center overflow-hidden bg-[#eef3ef] px-5 py-8">
+    <main className="relative grid min-h-[100dvh] place-items-center overflow-hidden bg-[#eef3ef] px-5 py-8">
       <DashboardBackdrop />
       <div className="absolute inset-0 bg-[#0b1f3a]/55 backdrop-blur-[3px]" />
-      <div className="relative z-10 w-full max-w-sm rounded-2xl border border-white/80 bg-white/95 px-7 py-6 text-center shadow-[0_30px_90px_rgba(0,20,12,.35)] sm:px-9 sm:py-7">
+      <div className="relative z-10 w-full max-w-sm rounded-2xl border border-white/80 bg-white/95 px-5 py-6 text-center shadow-[0_30px_90px_rgba(0,20,12,.35)] sm:px-9 sm:py-7">
         <Logo />
         <h1 className="mt-7 text-3xl">Confirm it&apos;s you</h1>
         <p className="mb-5 mt-2 text-sm leading-6 text-gray-500">
