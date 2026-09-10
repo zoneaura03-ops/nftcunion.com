@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { db, type DatabaseRow } from "../../../../lib/db";
 import { clientIp, rateLimit } from "../../../../lib/rate-limit";
-import { currentUser } from "../../../../lib/auth";
+import { destroySession } from "../../../../lib/auth";
 import { hashPassword, verifyPassword } from "../../../../lib/passwords";
 
 export async function POST(request: Request) {
@@ -20,19 +20,6 @@ export async function POST(request: Request) {
         { error: "Automated submission rejected." },
         { status: 400 },
       );
-    if (admin) {
-      const existingUser = await currentUser();
-      if (existingUser)
-        return NextResponse.json(
-          {
-            error:
-              existingUser.role === "admin"
-                ? "An administrator is already signed in on this browser."
-                : "Sign out of your customer account before using administrator access.",
-          },
-          { status: 409 },
-        );
-    }
     if (typeof email !== "string" || typeof password !== "string")
       return NextResponse.json(
         { error: "Enter your email and password." },
@@ -87,6 +74,7 @@ export async function POST(request: Request) {
         { error: "This account does not have administrator access." },
         { status: 403 },
       );
+    if (admin) await destroySession();
     if (!admin && user.role !== "user")
       return NextResponse.json(
         {

@@ -6,10 +6,13 @@ export default async function Page({
 }: {
   searchParams: Promise<{ notice?: string }>;
 }) {
+  const noticeType = (await searchParams).notice;
   const notice =
-    (await searchParams).notice === "password-changed"
+    noticeType === "password-changed"
       ? "Your password has been changed successfully. Sign in with your new password."
-      : undefined;
+      : noticeType === "inactive"
+        ? "You were signed out after a period of inactivity."
+        : undefined;
   return (
     <AuthLayout>
       <AuthCard notice={notice} />

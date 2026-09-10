@@ -1,7 +1,7 @@
 "use client";
 import { ShieldCheck } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import Logo from "../../../components/logo";
 
 export default function Page() {
@@ -10,6 +10,14 @@ export default function Page() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [notice, setNotice] = useState("");
+
+  useEffect(() => {
+    if (
+      new URLSearchParams(window.location.search).get("notice") === "inactive"
+    )
+      setNotice("You were signed out after a period of inactivity.");
+  }, []);
 
   async function submit(event: FormEvent) {
     event.preventDefault();
@@ -44,13 +52,18 @@ export default function Page() {
 
       <section className="relative z-10 hidden max-w-xl justify-self-start text-white lg:block">
         <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold tracking-wide backdrop-blur-md">
-          <ShieldCheck size={16} className="text-gold-300" /> Secure operations portal
+          <ShieldCheck size={16} className="text-gold-300" /> Secure operations
+          portal
         </div>
         <h1 className="mt-7 text-5xl font-semibold leading-[1.08] tracking-tight">
-          Banking operations,<br />protected by design.
+          Banking operations,
+          <br />
+          protected by design.
         </h1>
         <p className="mt-5 max-w-lg text-base leading-7 text-white/70">
-          Review customers, verification requests, transactions, cards, and account activity from the North Fountain Trust Credit Union administration workspace.
+          Review customers, verification requests, transactions, cards, and
+          account activity from the North Fountain Trust Credit Union
+          administration workspace.
         </p>
       </section>
 
@@ -60,22 +73,67 @@ export default function Page() {
       >
         <Logo />
         <div className="mt-8 flex items-center gap-3">
-          <span className="grid size-11 place-items-center rounded-xl bg-gold-50 text-gold-600"><ShieldCheck size={21} /></span>
-          <div><h2 className="text-2xl font-semibold text-neutral-900">Admin access</h2><p className="mt-0.5 text-xs text-neutral-500">Authorized North Fountain Trust Credit Union personnel only</p></div>
+          <span className="grid size-11 place-items-center rounded-xl bg-gold-50 text-gold-600">
+            <ShieldCheck size={21} />
+          </span>
+          <div>
+            <h2 className="text-2xl font-semibold text-neutral-900">
+              Admin access
+            </h2>
+            <p className="mt-0.5 text-xs text-neutral-500">
+              Authorized North Fountain Trust Credit Union personnel only
+            </p>
+          </div>
         </div>
         <label className="mt-7 block">
           <span className="label">Admin email</span>
-          <input required value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" className="field mt-2" type="email" placeholder="admin@nftcun.com" />
+          <input
+            required
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            autoComplete="email"
+            className="field mt-2"
+            type="email"
+            placeholder="admin@nftcun.com"
+          />
         </label>
         <label className="mt-4 block">
           <span className="label">Password</span>
-          <input required value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="current-password" className="field mt-2" type="password" placeholder="Enter your password" />
+          <input
+            required
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            autoComplete="current-password"
+            className="field mt-2"
+            type="password"
+            placeholder="Enter your password"
+          />
         </label>
-        {error && <p role="alert" className="mt-4 rounded-xl border border-red-100 bg-red-50 p-3 text-sm text-red-700">{error}</p>}
-        <button disabled={loading} className="btn mt-6 w-full disabled:cursor-not-allowed disabled:opacity-70">
+        {notice && (
+          <p
+            role="status"
+            className="mt-4 rounded-xl border border-gold-200 bg-gold-50 p-3 text-sm text-[#0b1f3a]"
+          >
+            {notice}
+          </p>
+        )}
+        {error && (
+          <p
+            role="alert"
+            className="mt-4 rounded-xl border border-red-100 bg-red-50 p-3 text-sm text-red-700"
+          >
+            {error}
+          </p>
+        )}
+        <button
+          disabled={loading}
+          className="btn mt-6 w-full disabled:cursor-not-allowed disabled:opacity-70"
+        >
           {loading ? "Signing in…" : "Sign in securely"}
         </button>
-        <p className="mt-5 text-center text-[11px] leading-5 text-neutral-400">Access is monitored and restricted to approved administrators.</p>
+        <p className="mt-5 text-center text-[11px] leading-5 text-neutral-400">
+          Access is monitored and restricted to approved administrators.
+        </p>
       </form>
     </main>
   );
