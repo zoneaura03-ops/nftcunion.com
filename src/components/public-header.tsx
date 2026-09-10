@@ -131,7 +131,7 @@ export function PublicHeader() {
           className={`absolute right-0 top-0 flex h-[100dvh] w-[min(88vw,360px)] flex-col overflow-y-auto bg-white px-5 py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] sm:px-6 shadow-2xl transition-transform duration-300 ease-out ${open ? "translate-x-0" : "translate-x-full"}`}
         >
           <div className="flex items-center justify-between">
-            <Logo inverse />
+            <Logo sidebar />
             <button
               className="grid h-10 w-10 place-items-center"
               onClick={() => setOpen(false)}
