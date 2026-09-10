@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import {
   Activity,
   BellRing,
@@ -17,11 +17,13 @@ import {
   History,
   LayoutDashboard,
   Landmark,
+  Menu,
   Search,
   Settings,
   ShieldCheck,
   Headphones,
   Users,
+  X,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Logo from "./logo";
@@ -72,6 +74,7 @@ export function AdminShell({
   user: AuthUser;
 }) {
   const pathname = usePathname();
+  const [mobileNavigationOpen, setMobileNavigationOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [notificationOpen, setNotificationOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
@@ -83,6 +86,19 @@ export function AdminShell({
     `${user.firstName[0] || "A"}${user.lastName[0] || ""}`.toUpperCase();
   const active = (href: string) =>
     href === "/admin" ? pathname === href : pathname.startsWith(href);
+
+  useEffect(() => {
+    setMobileNavigationOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!mobileNavigationOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [mobileNavigationOpen]);
   function submitSearch(event: FormEvent) {
     event.preventDefault();
     const value = adminSearch.trim();
@@ -164,10 +180,99 @@ export function AdminShell({
         </div>
       </aside>
 
+      {mobileNavigationOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden">
+          <button
+            type="button"
+            aria-label="Close admin navigation"
+            className="absolute inset-0 bg-[#020813]/65 backdrop-blur-sm"
+            onClick={() => setMobileNavigationOpen(false)}
+          />
+          <aside className="relative flex h-[100dvh] w-[min(88vw,360px)] flex-col overflow-hidden border-r border-white/10 bg-[#06111f] text-white shadow-2xl">
+            <div className="flex items-start justify-between border-b border-white/10 px-5 py-5">
+              <div>
+                <div className="inline-flex rounded-xl bg-white px-3 py-2">
+                  <Logo href="/admin" />
+                </div>
+                <div className="mt-3 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[.2em] text-gold-300/55">
+                  <span className="size-1.5 rounded-full bg-gold-400 shadow-[0_0_12px_#d8b45b]" />
+                  Operations console
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMobileNavigationOpen(false)}
+                className="grid size-11 place-items-center rounded-xl border border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
+                aria-label="Close admin navigation"
+              >
+                <X size={21} />
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto px-4 py-5">
+              {groups.map((group) => (
+                <div key={group.label} className="mb-7">
+                  <p className="px-3 text-[9px] font-bold uppercase tracking-[.2em] text-white/30">
+                    {group.label}
+                  </p>
+                  <nav className="mt-2 space-y-1" aria-label={group.label}>
+                    {group.links.map(([label, href, Icon]) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        aria-current={active(href) ? "page" : undefined}
+                        className={`group flex min-h-12 items-center gap-3 rounded-xl px-3 py-3 text-[13px] font-medium transition ${active(href) ? "bg-gradient-to-r from-gold-500/25 to-gold-400/10 text-white shadow-[inset_3px_0_0_#d8b45b]" : "text-white/60 hover:bg-white/[.06] hover:text-white"}`}
+                      >
+                        <Icon
+                          size={17}
+                          className={
+                            active(href) ? "text-gold-300" : "text-gold-300/55"
+                          }
+                        />
+                        <span className="flex-1">{label}</span>
+                        {active(href) && (
+                          <ChevronRight size={14} className="text-gold-300" />
+                        )}
+                      </Link>
+                    ))}
+                  </nav>
+                </div>
+              ))}
+            </div>
+            <div className="border-t border-white/10 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+              <div className="mb-3 flex items-center gap-3 rounded-xl bg-white/[.06] p-3">
+                <span className="grid size-10 shrink-0 place-items-center rounded-full bg-gradient-to-br from-gold-300 to-gold-500 text-xs font-bold text-[#0b1f3a] ring-2 ring-white/10">
+                  {initials}
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-semibold">
+                    {user.firstName} {user.lastName}
+                  </p>
+                  <p className="truncate text-[10px] text-white/40">
+                    System administrator
+                  </p>
+                </div>
+              </div>
+              <div className="text-rose-300 [&_button]:min-h-11 [&_button]:w-full [&_button]:justify-start">
+                <LogoutButton admin />
+              </div>
+            </div>
+          </aside>
+        </div>
+      )}
+
       <div className="min-w-0">
         <header className="sticky top-0 z-30 border-b border-[#dfe5ef] bg-white/90 backdrop-blur-xl">
           <div className="flex h-[72px] items-center gap-4 px-4 sm:px-7 lg:px-9">
-            <div className="lg:hidden">
+            <button
+              type="button"
+              onClick={() => setMobileNavigationOpen(true)}
+              className="grid size-11 shrink-0 place-items-center rounded-xl border border-[#dfe5ef] bg-white text-[#0b1f3a] lg:hidden"
+              aria-label="Open admin navigation"
+              aria-expanded={mobileNavigationOpen}
+            >
+              <Menu size={21} />
+            </button>
+            <div className="hidden sm:block lg:hidden">
               <Logo href="/admin" compact />
             </div>
             <div className="hidden min-w-0 sm:block">
@@ -317,20 +422,6 @@ export function AdminShell({
               </div>
             </div>
           </div>
-          <nav className="flex gap-2 overflow-x-auto border-t border-[#eef2f7] px-4 py-2 lg:hidden">
-            {groups
-              .flatMap((group) => group.links)
-              .map(([label, href, Icon]) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className={`flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-xs font-semibold ${active(href) ? "bg-bank-700 text-white" : "bg-neutral-100 text-neutral-600"}`}
-                >
-                  <Icon size={14} />
-                  {label}
-                </Link>
-              ))}
-          </nav>
         </header>
         <main className="min-w-0 p-4 sm:p-7 lg:p-9">{children}</main>
       </div>
