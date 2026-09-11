@@ -78,8 +78,16 @@ export function IdleSessionGuard() {
     };
     const onStorage = (event: StorageEvent) => {
       if (event.key !== storageKey) return;
-      if (event.newValue === null) void logout();
-      else checkSession();
+      if (event.newValue === null) {
+        // The originating tab already invalidated the shared cookie. Calling
+        // logout again can delete a replacement session created in another tab.
+        loggingOut = true;
+        window.location.replace(
+          admin
+            ? "/admin-login?notice=session-ended"
+            : "/login?notice=session-ended",
+        );
+      } else checkSession();
     };
 
     // Entering a protected route is activity and also replaces stale values

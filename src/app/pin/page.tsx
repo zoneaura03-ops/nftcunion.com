@@ -25,13 +25,15 @@ export default function Page() {
         sessionStorage.getItem("nftcunion_login_destination") ||
         (data.role === "admin" ? "/admin" : "/dashboard");
       sessionStorage.removeItem("nftcunion_login_destination");
-      localStorage.removeItem("nftcunion_admin_activity");
-      localStorage.removeItem("nftcunion_user_activity");
-      localStorage.setItem(
+      const activityKey =
         data.role === "admin"
           ? "nftcunion_admin_activity"
-          : "nftcunion_user_activity",
-        String(Date.now()),
+          : "nftcunion_user_activity";
+      localStorage.setItem(activityKey, String(Date.now()));
+      localStorage.removeItem(
+        data.role === "admin"
+          ? "nftcunion_user_activity"
+          : "nftcunion_admin_activity",
       );
       const destination =
         storedDestination.startsWith("/") && !storedDestination.startsWith("//")
